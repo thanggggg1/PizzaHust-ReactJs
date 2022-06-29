@@ -34,7 +34,7 @@ const ButtonAdd = styled(IconButton)`
   width: 24px;
   height: 24px;
   border-radius: 12px;
-  background-color: rgba(103, 101, 101, 0.5);
+  background-color: rgb(208,204,204);
 `
 const TextNormal = styled('span')`
   font-size: 16px;

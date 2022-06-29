@@ -1,7 +1,7 @@
 import React, {memo, useCallback, useEffect, useState} from "react";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {Fade, IconButton, ListItem, Modal, Rating, Snackbar, TextField, Typography} from "@mui/material";
+import {Fade, Grid, IconButton, ListItem, Modal, Rating, Snackbar, TextField, span} from "@mui/material";
 import {IC_BACK_NO_BORDER, IC_NEXT_NO_BORDER, IC_PLUS, IC_SUBTRACT} from "../assets";
 import Button from "@mui/material/Button";
 import {useLocation, useNavigate} from "react-router-dom";
@@ -157,7 +157,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                     src={IC_NEXT_NO_BORDER}/>
                             </RowSection>
                             <RowSection style={{
-                                backgroundColor: 'rgba(103,101,101,0.5)',
+                                backgroundColor: 'rgb(208,204,204)',
                                 borderRadius: 16,
                                 width: 80,
                                 justifyContent: 'space-between',
@@ -182,18 +182,24 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                         <TextNormal>Toppings</TextNormal>
                         <br/>
                         <br/>
+                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         {
                             toppings.map((topping, toppingId) => {
-                                return (<ToppingCard
-                                        name={topping.topping_name}
-                                        price={topping.topping_price}
-                                        _id={toppingId}
-                                        handleAdd={handleAdd}
-                                        added={tops[toppingId]}
-                                    />
+                                return (
+                                    <Grid item xs={6} key={toppingId}>
+                                        <ToppingCard
+                                            name={topping.topping_name}
+                                            price={topping.topping_price}
+                                            _id={toppingId}
+                                            handleAdd={handleAdd}
+                                            added={tops[toppingId]}
+                                        />
+                                    </Grid>
                                 )
                             })
                         }
+                        </Grid>
+
                     </ToppingSection>
                     <div style={{paddingLeft: 12, paddingRight: 12}}>
                         <RowSection style={{justifyContent: 'space-between'}}>
@@ -234,7 +240,8 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                 <br/>
                 <FeedBackContainer>
                     <RowSection style={{
-                        justifyContent: 'space-between', borderBottom: '1px solid black', paddingBottom: 12
+                        justifyContent: 'space-between', borderBottom: '1px solid black', paddingBottom: 12,
+                        paddingLeft:12,paddingRight:12
                     }}>
                         <TextHeading>Đánh Giá </TextHeading>
                         <AddFeedBackButton
@@ -262,7 +269,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                     width: {md: '50%', sm: '80%', xs: '90%'}
                                 }}
                             >
-                                <Typography variant="h6"
+                                <span variant="h6"
                                             sx={{
                                                 fontFamily: 'Playfair Display',
                                                 fontWeight: 700,
@@ -272,7 +279,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                                 textAlign: 'center',
                                             }}
                                 >Bình luận của bạn
-                                </Typography>
+                                </span>
                                 <TextField
                                     required
                                     id="name-field"
@@ -306,7 +313,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                 <Stack direction="row" spacing={5}
                                        sx={{alignItems: 'center'}}
                                 >
-                                    <Typography variant="h6"
+                                    <span variant="h6"
                                                 sx={{
                                                     fontFamily: 'be Vietnam',
                                                     fontWeight: 700,
@@ -316,7 +323,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                                     textAlign: 'center',
                                                 }}
                                     >Đánh giá:
-                                    </Typography>
+                                    </span>
                                     <Rating
                                         onChange={(e, newRate) => {
                                             setYourRate(newRate)
@@ -329,7 +336,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                 </Stack>
                                 {
                                     (yourName.length === 0 || yourCmt.length === 0) &&
-                                    (<Typography variant="h6"
+                                    (<span variant="h6"
                                                  sx={{
                                                      fontFamily: 'be Vietnam',
                                                      fontWeight: 700,
@@ -340,7 +347,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                                  }}
                                     >
                                         Hãy điền đủ thông tin
-                                    </Typography>)
+                                    </span>)
                                 }
                                 <Button variant="contained"
                                         onClick={postComment}
@@ -382,7 +389,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                 </div>
                         }
                     </List>
-                    <Box sx={{width: '100%', justifyContent: 'center', marginTop: '10px', display: 'flex'}}>
+                    <Box sx={{width: '80%', justifyContent: 'center', marginTop: '10px', display: 'flex'}}>
                         <CustomPagination variant="outlined" shape="rounded" count={totalPage}
                                           onChange={(event, value) => {
                                               setPage(value)
@@ -391,79 +398,28 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                 </FeedBackContainer>
                 <Modal open={done}>
                     <Fade in={done} timeout={500}>
-                        <Stack
+                        <StackModalAddCart
                             spacing={3}
-                            sx={{
-                                backgroundColor: 'white',
-                                borderRadius: '24px',
-                                width: '500px',
-                                p: 5,
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                alignItems: 'center'
-                            }}
+                            sx={{p: 5}}
                         >
-                            <Typography variant="h6"
-                                        sx={{
-                                            fontFamily: 'Playfair Display',
-                                            fontWeight: 700,
-                                            fontSize: '20px',
-                                            lineHeight: '52px',
-                                            color: '#07143B',
-                                            textAlign: 'center',
-                                        }}
-                            >Đã thêm vào giỏ hàng
-                            </Typography>
+                            <TextAddCart>ĐÃ THÊM VÀO GIỎ HÀNG</TextAddCart>
                             <Stack direction="row" spacing={5}>
-                                <Button variant="contained"
+                                <ButtonModalAddToCart variant="contained"
                                         onClick={() => {
                                             setDone(false);
                                         }}
-                                        sx={{
-                                            backgroundColor: '#EA6A12',
-                                            borderRadius: '100px',
-                                            //maxWidth: '150px',
-                                            fontFamily: 'be Vietnam',
-                                            fontWeight: 'normal',
-                                            fontSize: '15px',
-                                            lineHeight: '175%',
-                                            color: 'white',
-                                            height: '45px',
-                                            '&:hover, &:active': {
-                                                backgroundColor: '#f57c00'
-                                            },
-                                            marginBottom: 2
-                                        }}
                                 >
                                     Hoàn thành
-                                </Button>
-                                <Button variant="contained"
+                                </ButtonModalAddToCart>
+                                <ButtonModalAddToCart variant="contained"
                                         onClick={() => {
                                             navigate('/cart');
-                                        }}
-                                        sx={{
-                                            backgroundColor: '#EA6A12',
-                                            borderRadius: '100px',
-                                            //maxWidth: '150px',
-                                            height: '45px',
-                                            fontFamily: 'be Vietnam',
-                                            fontWeight: 'normal',
-                                            fontSize: '15px',
-                                            lineHeight: '175%',
-                                            color: 'white',
-                                            '&:hover, &:active': {
-                                                backgroundColor: '#f57c00'
-                                            },
-                                            marginBottom: 2
-                                        }}
-                                >
+                                        }}>
                                     Xem giỏ hàng
-                                </Button>
+                                </ButtonModalAddToCart>
                             </Stack>
 
-                        </Stack>
+                        </StackModalAddCart>
                     </Fade>
                 </Modal>
                 <Snackbar
@@ -580,3 +536,32 @@ const BoxFeedBack = styled(Box)`
   padding: 8px;
   border-radius: 12px;
 `
+
+const StackModalAddCart =styled(Stack)`
+  background-color: white;
+  border-radius: 24px;
+  width: 500px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  align-items: center;
+`
+const TextAddCart = styled('span')`
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+`
+const ButtonModalAddToCart = styled(Button)({
+    backgroundColor: '#EC393E',
+    borderRadius: '100px',
+    //maxWidth: '150px',
+    fontSize: '15px',
+    lineHeight: '175%',
+    color: 'white',
+    height: '45px',
+    '&:hover, &:active': {
+        backgroundColor: '#EA4D52FF'
+    },
+    marginBottom: 2
+})

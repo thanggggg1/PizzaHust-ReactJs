@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React, {useState} from 'react'
 import Box from "@mui/material/Box";
-import {IconButton, Typography} from "@mui/material";
+import {IconButton, span} from "@mui/material";
 import Stack from "@mui/material/Stack";
 import {AddCircleRounded, InfoRounded} from "@mui/icons-material";
 export const ChooseCard = (props)=>{
@@ -37,7 +37,7 @@ export const ChooseCard = (props)=>{
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
                     alignItems: 'start',
-                    backgroundColor: hov ?'rgba(234, 106, 18, 0.7)': 'rgba(255, 255, 255, 0.4)',
+                    backgroundColor: hov ?'#ec393e': 'rgba(255, 255, 255, 0.4)',
                     boxShadow: '0 2px 5px rgba(0, 0, 0, 0.5)',
                     width: '200px',
                     height: '230px',
@@ -60,7 +60,7 @@ export const ChooseCard = (props)=>{
                         objectFit: 'cover'
                     }}
                 />
-                <Typography variant="subtitle1"
+                <span variant="subtitle1"
                             sx={{
                                 fontFamily: 'be Vietnam',
                                 fontWeight: 600,
@@ -71,8 +71,8 @@ export const ChooseCard = (props)=>{
                                 marginBottom: '10px'
                             }}
                 >{name}
-                </Typography>
-                <Typography variant="subtitle1"
+                </span>
+                <span variant="subtitle1"
                             sx={{
                                 fontFamily: 'be Vietnam',
                                 fontWeight: 600,
@@ -82,7 +82,7 @@ export const ChooseCard = (props)=>{
                                 textAlign: 'start'
                             }}
                 >$ {price}
-                </Typography>
+                </span>
                 <Stack spacing={2} direction="row" sx={{alignSelf:"flex-end"}}>
                     <IconButton
                         size="small"

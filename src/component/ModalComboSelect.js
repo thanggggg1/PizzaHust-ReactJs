@@ -1,7 +1,7 @@
 import React, {memo, useCallback, useEffect, useState} from "react";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {Fade, Modal, Typography} from "@mui/material";
+import {Fade, Modal, span, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import {IC_PLUS, IC_SUBTRACT, IMG_SALE_50_PERCENT} from "../assets";
 import {useLocation, useNavigate} from "react-router-dom";
@@ -174,7 +174,7 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                         <Box sx={{
                             width: '100%'
                         }}>
-                            <Typography variant="subtitle1"
+                            <span variant="subtitle1"
                                         sx={{
                                             fontFamily: 'Fairplay Display',
                                             fontWeight: 600,
@@ -186,7 +186,7 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                                             m: 3
                                         }}
                             >Bonus (100% miễn phí)
-                            </Typography>
+                            </span>
                             {
                                 combo.free.pizza && combo.free.pizza > 0 &&
                                 <CustomProduct
@@ -244,10 +244,8 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                             combo.off > 0 &&
                             <Typography variant="h6"
                                         sx={{
-                                            fontFamily: 'Fairplay Display',
                                             fontWeight: 500,
-                                            fontSize: '25px',
-                                            lineHeight: '52px',
+                                            fontSize: '20px',
                                             color: '#EA6A12',
                                             textAlign: 'center',
                                             textOverflow: 'ellipsis',
@@ -331,7 +329,7 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                                 alignItems: 'center'
                             }}
                         >
-                            <Typography variant="h6"
+                            <span variant="h6"
                                         sx={{
                                             fontFamily: 'Playfair Display',
                                             fontWeight: 700,
@@ -341,7 +339,7 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                                             textAlign: 'center',
                                         }}
                             >Đã cập nhập giỏ hàng của bạn
-                            </Typography>
+                            </span>
                             <Stack direction="row" spacing={5}>
                                 <Button variant="contained"
                                         onClick = {()=>{

@@ -19,7 +19,7 @@ export const ComboItem = memo(function ComboItem(props) {
     const valid = Date.now() / 1000 >= combo.start && Date.now() / 1000 <= combo.end
     return (
         <Container>
-            <ImageItem src={combo.image}/>
+            <ImageItem src={combo.banner}/>
             <div style={{padding: 8, display: "flex", flexDirection: "column", backgroundColor: '#FFF9F9'}}>
                 <TextBold>{combo.title}</TextBold>
                 <TextNormal>{combo.description}</TextNormal>

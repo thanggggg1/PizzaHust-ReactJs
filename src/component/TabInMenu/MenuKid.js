@@ -92,7 +92,7 @@ export const MenuKid = memo(function MenuKid() {
                             </div>
                         </Box>
             }
-            <Box sx={{marginTop: '100px', alignItems: 'center', width: '100%', marginLeft: '40%'}}>
+            <Box sx={{marginTop: '80px', alignItems: 'center', width: '100%', marginLeft: '40%'}}>
                 <CustomPagination variant="outlined" shape="rounded" count={totalPage}
                                   onChange={(event, value) => {
                                       setPage(value)

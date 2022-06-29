@@ -98,9 +98,9 @@ export const Home = memo(function Home() {
                                   },
                               }}
                         >
-                            <Tab label='Hôm nay ăn gì?' disabled/>
-                            <Tab label="Đánh giá tốt nhất" {...a11yProps(1)} />
-                            <Tab label="Món nổi bật nhất" {...a11yProps(2)} />
+                            <AntTab label='Hôm nay ăn gì?' disabled/>
+                            <AntTab label="Đánh giá tốt nhất" {...a11yProps(1)} />
+                            <AntTab label="Món nổi bật nhất" {...a11yProps(2)} />
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={1}>
@@ -252,4 +252,13 @@ const CustomPagination = styled(Pagination)({
     '& .Mui-selected': {
         backgroundColor: 'rgb(234, 106, 18, 0.5)',
     }
+})
+const AntTab = styled(Tab)({
+    color: 'rgba(0,0,0,0.85)',
+    '&:hover': {
+        color: '#EC393E'
+    },
+    '&.Mui-selected': {
+        color: '#EC393E'
+    },
 })

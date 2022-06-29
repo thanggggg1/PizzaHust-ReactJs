@@ -1,7 +1,7 @@
 import React, {memo, useState} from "react";
 import Stack from "@mui/material/Stack";
 import {useSelector} from "react-redux";
-import {CircularProgress, Grow, Typography, styled, Pagination} from "@mui/material";
+import {CircularProgress, Grow, span, styled, Pagination} from "@mui/material";
 import Box from "@mui/material/Box";
 import {BestReviewItem} from "../BestReviewItem";
 import {ExtraItemInMenu} from "../ExtraItemInMenu";
@@ -88,7 +88,7 @@ export const MenuVegetable = memo(function MenuVegetable(){
                             </div>
                         </Box>
             }
-            <Box sx={{marginTop: '100px', alignItems: 'center', width: '100%', marginLeft: '40%'}}>
+            <Box sx={{marginTop: '80px', alignItems: 'center', width: '100%', marginLeft: '40%'}}>
                 <CustomPagination variant="outlined" shape="rounded" count={totalPage}
                                   onChange={(event, value) => {setPage(value)}} size="large" page={page}
                 />

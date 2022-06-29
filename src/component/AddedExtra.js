@@ -1,9 +1,9 @@
-import React from 'react'
-import {useSelector} from "react-redux";
+import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {Divider, IconButton, Typography} from "@mui/material";
-import {SwapHorizontalCircleRounded} from "@mui/icons-material";
-import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import {IMG_DRINKS_COCA} from "../assets";
+import {useSelector} from "react-redux";
+
 export const AddedExtra = (props) => {
     const menu = {
         'pizza': useSelector(state => state.pizzas),
@@ -19,83 +19,62 @@ export const AddedExtra = (props) => {
     const productId = props.productId;
     const product = menu[category].entities[productId];
     return (
-        <Box
-            sx={{
-                backgroundColor: 'rgba(252, 237, 227, 0.3)',
-                borderRadius: '20px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '100%',
-                p: 3,
-                m: 3
-            }}
-        >
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap'
-                }}
-            >
-                <Box
-                    sx={{
-                        display: {md: 'block', sm: 'none', xs: 'none'}
-                    }}
-                >
-                    <img
-                        src={product.image_url}
-                        alt={product.title}
-                        style={{
-                            width: '150px',
-                            height: '150px',
-                            borderRadius: '50%',
-                            objectFit: 'cover'
+        <Container>
+            <RowSection>
+                <ColumnSection>
+                    <ImageView src={product.image_url}/>
+                    <ChangeItem
+                        onClick={() =>{
+                            openModal(slotId)
                         }}
-                    />
-                </Box>
-                <Stack spacing={2} sx={{
-                    marginLeft: {md: '50px', sm: 0, xs: 0}
-                }}>
-                    <Typography variant="h6"
-                                sx={{
-                                    fontFamily: 'Fairplay Display',
-                                    fontWeight: 700,
-                                    fontSize: {md: '35px', sm: '25px', xs: '20px'},
-                                    lineHeight: '52px',
-                                    color: '#07143B',
-                                    textAlign: 'start',
-
-                                }}
-                    >{product.title}
-                    </Typography>
-                    <Divider variant='middle' sx={{width: '50%'}}/>
-                    <Typography variant="h6"
-                                sx={{
-                                    fontFamily: 'be Vietnam',
-                                    fontWeight: 700,
-                                    fontSize: {md: '25px', sm: '20px', xs: '20px'},
-                                    lineHeight: '52px',
-                                    color: '#07143B',
-                                    textAlign: 'start',
-
-                                }}
-                    >{product.price}đ
-                    </Typography>
-                </Stack>
-            </Box>
-            <IconButton
-                onClick={() => {
-                    openModal(slotId)
-                }}
-            >
-                <SwapHorizontalCircleRounded
-                    sx={{
-                        width: '50px',
-                        height: '50px',
-                        color: 'rgba(234, 106, 18, 0.7)',
-                    }}
-                />
-            </IconButton>
-        </Box>
+                    >
+                        <TextChangeItem>ĐỔI MÓN</TextChangeItem>
+                    </ChangeItem>
+                </ColumnSection>
+                <div style={{width: '58%', padding: 8}}>
+                    <RowSection style={{justifyContent: 'space-between'}}>
+                        <TextNormal>{product.title}</TextNormal>
+                        <TextNormal>{product.price} đ</TextNormal>
+                    </RowSection>
+                    <br/>
+                </div>
+            </RowSection>
+        </Container>
     )
 }
+const Container = styled(Box)`
+  background-color: white;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 20px;
+`
+const RowSection = styled('div')`
+  display: flex;
+`
+const TextNormal = styled('span')`
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+`
+const TextLight = styled('span')`
+  font-size: 12px;
+  color: #2c2b2b;
+`
+const ImageView = styled('img')`
+  width: 120px;
+`
+const ChangeItem = styled(Button)`
+  background-color: #ec393e;
+  width: 120px;
+  height: 28px;
+  margin-top: 4px;
+
+`
+const TextChangeItem = styled('span')`
+  font-size: 12px;
+  color: white;
+`
+
+const ColumnSection = styled('div')`
+  display: flex;
+  flex-direction: column;
+`

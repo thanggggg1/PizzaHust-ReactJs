@@ -1,5 +1,5 @@
 import React,{memo} from "react";
-import {Grid} from "@mui/material";
+import {Grid, Step, StepLabel, Stepper} from "@mui/material";
 import {IC_LINE} from "../assets";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -94,48 +94,19 @@ export const BillOrder = memo(function BillOrder(props){
                 <br/>
                 <br/>
                 <StatusTextHeader>Trạng thái</StatusTextHeader>
-                {/*<Stepper*/}
-                {/*    color='warning'*/}
-                {/*    activeStep={activeStep}*/}
-                {/*    alternativeLabel*/}
-                {/*>*/}
-                {/*    {*/}
-                {/*        steps.map(step =>*/}
-                {/*            <Step key={step}>*/}
-                {/*                <StepLabel>{step}</StepLabel>*/}
-                {/*            </Step>*/}
-                {/*        )*/}
-                {/*    }*/}
-                {/*</Stepper>*/}
-                <StatusSection>
-                    <StatusIndex>
-                        <CircleIcon>
-                            <NumberStatus>1</NumberStatus>
-                        </CircleIcon>
-                        <span>Duyệt</span>
-                    </StatusIndex>
-                    <LineIcon src={IC_LINE}/>
-                    <StatusIndex>
-                        <CircleIcon>
-                            <NumberStatus>1</NumberStatus>
-                        </CircleIcon>
-                        <span>Duyệt</span>
-                    </StatusIndex>
-                    <LineIcon src={IC_LINE}/>
-                    <StatusIndex>
-                        <CircleIcon>
-                            <NumberStatus>1</NumberStatus>
-                        </CircleIcon>
-                        <span>Duyệt</span>
-                    </StatusIndex>
-                    <LineIcon src={IC_LINE}/>
-                    <StatusIndex>
-                        <CircleIcon>
-                            <NumberStatus>1</NumberStatus>
-                        </CircleIcon>
-                        <span>Duyệt</span>
-                    </StatusIndex>
-                </StatusSection>
+                <Stepper
+                    color='warning'
+                    activeStep={activeStep}
+                    alternativeLabel
+                >
+                    {
+                        steps.map(step =>
+                            <Step key={step}>
+                                <StepLabel>{step}</StepLabel>
+                            </Step>
+                        )
+                    }
+                </Stepper>
             </PaperSection>
         </Grid>
     )

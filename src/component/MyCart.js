@@ -137,6 +137,7 @@ const MyCart = styled(Box)`
   align-items: center;
   margin-top: 12px;
   height: 600px;
+  padding-bottom: 20px;
 `
 const ButtonCheckCart = styled(Button)`
   width: 60%;

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useSelector} from "react-redux";
-import {Modal, Typography} from "@mui/material";
+import {Modal, span} from "@mui/material";
 import Box from "@mui/material/Box";
 import {CustomPagination} from "./TabInMenu/MenuKid";
 import {ChooseCard} from "./ChooseCard";
@@ -47,18 +47,18 @@ export const ComboChooseModal = (props) =>{
                     width: {md: '80%', sm: '80%', xs: '90%'},
                 }}
             >
-                <Typography
-                    style={{
-                        fontFamily: 'Fairplay Display',
-                        fontWeight: 600,
-                        fontSize: '40px',
-                        lineHeight: '22.75px',
-                        color: '#07143B',
-                        textAlign: 'start',
-                        margin: '20px'
-                    }}
-                >Chọn {label[category]}
-                </Typography>
+               <div style={{display:'flex',alignItems:'center',borderBottom:'1px solid black',justifyContent:'center'}}>
+                    <span
+                        style={{
+                            fontWeight: 600,
+                            fontSize: '32px',
+                            color: '#07143B',
+                            textAlign: 'start',
+                            margin: '20px'
+                        }}
+                    >Chọn {label[category]}
+                </span>
+               </div>
                 <Box sx={{
                     m: 1,
                     p: 2,

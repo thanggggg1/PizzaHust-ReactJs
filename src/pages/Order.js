@@ -2,7 +2,7 @@ import React, {memo, useEffect, useState} from "react";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import {Header} from "../component/Header";
-import {IC_CIRCLE, IC_LINE, IMG_CAT_BOX, IMG_MENU_BACKGROUND, IMG_MOTORBIKE, IMG_ORDER_BACKGROUND} from "../assets";
+import {IMG_MOTORBIKE, IMG_ORDER_BACKGROUND} from "../assets";
 import {Grid} from "@mui/material";
 import Button from "@mui/material/Button";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,8 +12,8 @@ import {EmptyCart} from "../component/EmptyCart";
 
 export const Order = memo(function Order() {
     const orders = useSelector(state => state.orders)
-    const dispatch= useDispatch()
-    useEffect(() =>{
+    const dispatch = useDispatch()
+    useEffect(() => {
         dispatch(fetchOrders())
     }, [])
     const [currentId, setCurrentId] = useState(0);
@@ -26,8 +26,8 @@ export const Order = memo(function Order() {
                     <ContentContainer>
                         <Grid container spacing={2}>
                             <BillOrder
-                                code = {orders.ids[currentId]}
-                                order = {orders.entities[orders.ids[currentId]]}
+                                code={orders.ids[currentId]}
+                                order={orders.entities[orders.ids[currentId]]}
                             />
                             <Grid item xs={6} md={6}>
                                 <HistoryOrder>
@@ -35,9 +35,9 @@ export const Order = memo(function Order() {
                                     <TextHistory>LỊCH SỬ ĐƠN HÀNG</TextHistory>
                                     <br/>
                                     {
-                                        orders.ids.map((id,index) =>
+                                        orders.ids.map((id, index) =>
                                             <ButtonSelectOrder
-                                                onClick = {() =>{
+                                                onClick={() => {
                                                     setCurrentId(index)
                                                 }}
                                             >
@@ -49,11 +49,11 @@ export const Order = memo(function Order() {
                             </Grid>
                         </Grid>
                     </ContentContainer> :
-                   <EmptyCart
-                   title={'BẠN CHƯA CÓ ĐƠN HÀNG NÀO'}
-                   content={'Hiện tại bạn chưa có sản phẩm nào trong giỏ hàng. ' +
-                       'Hãy dạo một vòng Thực đơn để chọn sản phẩm yêu thích nhé, PizzaHUST có nhiều món ngon lắm!'}
-                   />
+                    <EmptyCart
+                        title={'BẠN CHƯA CÓ ĐƠN HÀNG NÀO'}
+                        content={'Hiện tại bạn chưa có sản phẩm nào trong giỏ hàng. ' +
+                            'Hãy dạo một vòng Thực đơn để chọn sản phẩm yêu thích nhé, PizzaHUST có nhiều món ngon lắm!'}
+                    />
             }
         </Container>
     )
@@ -79,17 +79,16 @@ const ContentContainer = styled(Box)`
 `
 
 const HistoryOrder = styled(Box)`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
-const MotorbikeImage=styled('img')`
-width: 280px;
-  height: 240px
-;
+const MotorbikeImage = styled('img')`
+  width: 280px;
+  height: 240px;
 `
-const TextHistory=styled('div')`
+const TextHistory = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,13 +99,14 @@ const TextHistory=styled('div')`
   margin-top: 24px;
   width: 60%;
 `
-const ButtonSelectOrder=styled(Button)`
-background-color: #ec393e;
+const ButtonSelectOrder = styled(Button)`
+  background-color: #ec393e;
   border-radius: 12px;
-  height: 40px;
+  height: 100%;
   width: 60%;
+  margin: 16px 0;
 `
-const TextButtonSelect=styled('p')`
-font-size: 20px;
+const TextButtonSelect = styled('p')`
+  font-size: 16px;
   color: white;
 `

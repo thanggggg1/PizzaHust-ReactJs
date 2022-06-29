@@ -66,10 +66,10 @@ const CartImage = styled('img')({
 const ButtonHeader = styled(Button)({
     color: '#333',
     fontSize: 12,
+    fontWeight:"bolder",
     '&:hover': {
         color: '#EC393E',
         boxShadow: 'none',
-        backgroundColor: 'white'
     },
     '&:active': {
         boxShadow: 'none',

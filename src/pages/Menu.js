@@ -91,7 +91,6 @@ export const Menu = memo(function Menu() {
                             }}
                         />
                     </SearchBar>
-
                     <TabPanel value={value} index={0}>
                         <MenuPizza/>
                     </TabPanel>
@@ -112,7 +111,6 @@ export const Menu = memo(function Menu() {
                     </TabPanel>
                 </TabContainer>
                 <MyCartSection/>
-
             </ContentContainer>
 
         </Container>
@@ -146,6 +144,7 @@ const ContentContainer = styled(Box)`
   padding-left: 40px;
   padding-right: 12px;
   justify-content: space-between;
+  padding-bottom: 120px;
 `
 const TabContainer = styled(Box)`
   background-color: #FFFBFB;

@@ -34,14 +34,6 @@ export const CommentBox = memo(function CommentBox(props) {
 })
 
 
-const BoxContainer = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  background-color: #F4F1F1;
-  border-radius: 24px;
-  padding: 12px;
-`
-
 const TextNormal = styled('span')`
   font-size: 16px;
   color: black;
@@ -55,17 +47,14 @@ const TextLight = styled('span')`
 const StarView = styled(Box)`
   flex-direction: row;
 `
-const StarImage = styled('img')`
-  width: 12px;
-  height: 12px;
-`
 const RowSection = styled('div')`
   display: flex;
   align-items: center;
 `
 
 const BoxFeedBack = styled(Box)`
-  background-color: #d3cbcb;
+  background-color: #cecccc;
   padding: 8px;
   border-radius: 12px;
+  width: 100%;
 `

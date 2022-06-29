@@ -1,10 +1,12 @@
 import {useSelector} from "react-redux";
+import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import {IC_BACK_NO_BORDER, IC_NEXT_NO_BORDER, IMG_PIZZA_YOUR_CART} from "../assets";
 import Stack from "@mui/material/Stack";
-import {Checkbox, Divider, IconButton, Typography} from "@mui/material";
-import {KeyboardArrowLeftRounded, KeyboardArrowRightRounded, SwapHorizontalCircleRounded} from "@mui/icons-material";
+import {Checkbox} from "@mui/material";
 
-export const AddedPizza = (props) =>{
+export const AddedPizza = (props) => {
     const slotId = props.slotId;
     const openModal = props.openModal;
     const productId = props.productId;
@@ -12,106 +14,24 @@ export const AddedPizza = (props) =>{
     const handleChange = props.handleChange;
     const product = useSelector(state => state.pizzas.entities[productId]);
     return (
-        <Box
-            sx={{
-                backgroundColor:'rgba(252, 237, 227, 0.3)',
-                borderRadius: '20px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '100%',
-                p:3,
-                m: 3
-            }}
-        >
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    width: {md: '90%', sm: '95%', xs: '95%'}
-                }}
-            >
-                <Box
-                    sx={{
-                        display: {md: 'block', sm: 'none', xs: 'none'}
-                    }}
-                >
-                    <img
-                        src={product.image_url}
-                        alt={product.title}
-                        style={{
-                            width: '150px',
-                            height: '150px',
-                            borderRadius: '50%',
-                            objectFit: 'cover'
-                        }}
-                    />
-                </Box>
-                <Stack spacing = {2} sx={{
-                    marginLeft: {md: '50px', sm: 0, xs: 0},
-                    width: {md: '70%', sm: '100%', xs: '100%'}
-                }}>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            width: '100%'
-                        }}
-                    >
-                        <Typography variant="h6"
-                                    sx={{
-                                        fontFamily: 'Fairplay Display',
-                                        fontWeight: 700,
-                                        fontSize: {md: '35px', sm: '30px', xs: '25px'},
-                                        lineHeight: '52px',
-                                        color: '#07143B',
-                                        textAlign: 'start',
-
-                                    }}
-                        >{product.title}
-                        </Typography>
-                        <Typography variant="h6"
-                                    sx={{
-                                        fontFamily: 'be Vietnam',
-                                        fontWeight: 700,
-                                        fontSize: {md: '25px', sm: '20px', xs: '20px'},
-                                        lineHeight: '52px',
-                                        color: '#07143B',
-                                        textAlign: 'start',
-
-                                    }}
-                        >Giá: {pizzaInfo.price}VND
-                        </Typography>
-                    </Box>
-
-                    <Divider variant='middle' sx={{width: '50%'}}/>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            width: {md: '70%', sm: '90%', xs: '90%'},
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            flexWrap: 'wrap'
-                        }}
-                    >
-                        <Stack spacing={1} direction='row'
-                               sx={{
-                                   alignItems: 'center'
-                               }}
-                        >
-                            <Typography variant="body1"
-                                        sx={{
-                                            fontFamily: 'be Vietnam',
-                                            fontWeight: 400,
-                                            fontSize: {md: '20px', sm: '15px', xs: '15px'},
-                                            lineHeight: '22.75px',
-                                            color: '#07143B',
-                                            textAlign: 'start'
-                                        }}
-                            >Cỡ:
-                            </Typography>
-                            <IconButton
+        <Container>
+            <RowSection>
+                <ColumnSection >
+                    <ImageView src={product.image_url}/>
+                    <ChangeItem>
+                        <TextChangeItem>ĐỔI MÓN</TextChangeItem>
+                    </ChangeItem>
+                </ColumnSection>
+                <div style={{width:'58%',padding:8}}>
+                    <RowSection style={{justifyContent:'space-between'}}>
+                        <TextNormal>{product.title}</TextNormal>
+                        <TextNormal>{pizzaInfo.price} đ</TextNormal>
+                    </RowSection>
+                    <br/>
+                    <RowSection style={{justifyContent:'space-between'}}>
+                        <div>
+                            <TextNormal>Cỡ:</TextNormal>
+                            <ImageAction
                                 onClick = {() =>{
                                     const currentSize = pizzaInfo.size ? pizzaInfo.size : 0
                                     const newSize = currentSize > 0 ? currentSize - 1: 0
@@ -126,21 +46,9 @@ export const AddedPizza = (props) =>{
                                         }
                                     })
                                 }}
-                            >
-                                <KeyboardArrowLeftRounded/>
-                            </IconButton>
-                            <Typography variant="subtitle1"
-                                        sx={{
-                                            fontFamily: 'Fairplay Display',
-                                            fontWeight: 600,
-                                            fontSize: {md: '20px', sm: '15px', xs: '15px'},
-                                            lineHeight: '175%',
-                                            color:'#07143B',
-                                            textAlign: 'start'
-                                        }}
-                            >{product.size[pizzaInfo.size ? pizzaInfo.size: 0].type_detail}
-                            </Typography>
-                            <IconButton
+                                src={IC_BACK_NO_BORDER}/>
+                            <TextNormal>{product.size[pizzaInfo.size ? pizzaInfo.size: 0].type_detail}</TextNormal>
+                            <ImageAction
                                 onClick = {() =>{
                                     const currentSize = pizzaInfo.size ? pizzaInfo.size : 0
                                     const newSize = currentSize < product.size.length - 1 ? currentSize + 1: currentSize
@@ -155,29 +63,11 @@ export const AddedPizza = (props) =>{
                                         }
                                     })
                                 }}
-                            >
-                                <KeyboardArrowRightRounded/>
-                            </IconButton>
-                        </Stack>
-                        <Stack spacing={1} direction="row"
-
-                               sx={{
-                                   alignItems: 'center'
-                               }}
-
-                        >
-                            <Typography variant="body1"
-                                        sx={{
-                                            fontFamily: 'be Vietnam',
-                                            fontWeight: 400,
-                                            fontSize: {md: '20px', sm: '15px', xs: '15px'},
-                                            lineHeight: '22.75px',
-                                            color: '#07143B',
-                                            textAlign: 'start'
-                                        }}
-                            >Đế:
-                            </Typography>
-                            <IconButton
+                                src={IC_NEXT_NO_BORDER}/>
+                        </div>
+                        <div>
+                            <TextNormal>Đế:</TextNormal>
+                            <ImageAction
                                 onClick = {() =>{
                                     const currentType = pizzaInfo.type ? pizzaInfo.type : 0
                                     const newType = 1 - currentType
@@ -189,21 +79,9 @@ export const AddedPizza = (props) =>{
                                         }
                                     })
                                 }}
-                            >
-                                <KeyboardArrowLeftRounded/>
-                            </IconButton>
-                            <Typography variant="subtitle1"
-                                        sx={{
-                                            fontFamily: 'Fairplay Display',
-                                            fontWeight: 600,
-                                            fontSize: {md: '20px', sm: '15px', xs: '15px'},
-                                            lineHeight: '175%',
-                                            color:'#07143B',
-                                            textAlign: 'start'
-                                        }}
-                            >{product.type[pizzaInfo.type ? pizzaInfo.type: 0].slice(0, 10)}
-                            </Typography>
-                            <IconButton
+                                src={IC_BACK_NO_BORDER}/>
+                            <TextNormal>Đế giòn</TextNormal>
+                            <ImageAction
                                 onClick = {() =>{
                                     const currentType = pizzaInfo.type ? pizzaInfo.type : 0
                                     const newType = 1 - currentType
@@ -215,23 +93,12 @@ export const AddedPizza = (props) =>{
                                         }
                                     })
                                 }}
-                            >
-                                <KeyboardArrowRightRounded/>
-                            </IconButton>
-                        </Stack>
-                    </Box>
-
-                    <Typography variant="body1"
-                                sx={{
-                                    fontFamily: 'be Vietnam',
-                                    fontWeight: 400,
-                                    fontSize: {md: '20px', sm: '15px', xs: '15px'},
-                                    lineHeight: '22.75px',
-                                    color: '#07143B',
-                                    textAlign: 'start'
-                                }}
-                    >Toppings:
-                    </Typography>
+                                src={IC_NEXT_NO_BORDER}/>
+                        </div>
+                    </RowSection>
+                    <br/>
+                    <TextNormal>Toppings</TextNormal>
+                    <br/>
                     <Box
                         sx={{
                             display: 'flex',
@@ -243,11 +110,11 @@ export const AddedPizza = (props) =>{
                     >
                         {
                             product.topping.map((top, index) =>
-                                <Stack direction='row' spacing={3} sx={{width: {md: '70%', sm: '100%', xs: '100%'}, alignItems: 'center'}}>
+                                <Stack direction='row' spacing={2} sx={{width: {md: '70%', sm: '100%', xs: '100%'}, alignItems: 'center'}}>
                                     <Checkbox
                                         sx={{
                                             '&.Mui-checked': {
-                                                color: '#EA6A12',
+                                                color: '#EC393E',
                                             },
                                         }}
                                         checked = {pizzaInfo.topping ? pizzaInfo.topping[index] : false}
@@ -269,36 +136,61 @@ export const AddedPizza = (props) =>{
                                             })
                                         }}
                                     />
-                                    <Typography variant="body1"
+                                    <span
                                                 sx={{
-                                                    fontFamily: 'be Vietnam',
                                                     fontWeight: 700,
                                                     fontSize: '15px',
                                                     lineHeight: '22.75px',
                                                     color: '#07143B',
-                                                    textAlign: 'start'
                                                 }}
                                     >{top.topping_name} - {top.topping_price}đ
-                                    </Typography>
+                                    </span>
                                 </Stack>
                             )
                         }
                     </Box>
-                </Stack>
-            </Box>
-            <IconButton
-                onClick={() =>{
-                    openModal(slotId)
-                }}
-            >
-                <SwapHorizontalCircleRounded
-                    sx={{
-                        width: '50px',
-                        height: '50px',
-                        color: 'rgba(234, 106, 18, 0.7)',
-                    }}
-                />
-            </IconButton>
-        </Box>
+                </div>
+            </RowSection>
+        </Container>
     )
 }
+const Container = styled(Box)`
+  background-color: white;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 20px;
+`
+const RowSection = styled('div')`
+  display: flex;
+`
+const TextNormal = styled('span')`
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+`
+const TextLight = styled('span')`
+  font-size: 12px;
+  color: #2c2b2b;
+`
+const ImageView = styled('img')`
+  width: 120px;
+`
+const ChangeItem = styled(Button)`
+  background-color: #ec393e;
+  width: 120px;
+  height: 28px;
+  margin-top: 4px;
+
+`
+const TextChangeItem = styled('span')`
+  font-size: 12px;
+  color: white;
+`
+const ImageAction = styled('img')`
+  width: 20px;
+  height: 20px;
+`
+const ColumnSection =styled('div')`
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+`

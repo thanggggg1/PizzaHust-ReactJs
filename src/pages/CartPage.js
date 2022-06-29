@@ -19,7 +19,7 @@ import {
     Select,
     Snackbar,
     TextField,
-    Typography
+    span
 } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -239,7 +239,7 @@ export const CartPage = memo(function CartPage() {
                         handleComboChange={handleComboChange}
                         handleExtraChange={handleExtraChange}
                     />
-                    <Typography variant="h6"
+                    <span variant="h6"
                                 sx={{
                                     fontFamily: 'Playfair Display',
                                     fontWeight: 700,
@@ -249,7 +249,7 @@ export const CartPage = memo(function CartPage() {
                                     textAlign: 'start'
                                 }}
                     >Tổng tiền: {totalValue} VND
-                    </Typography>
+                    </span>
                     <ConfirmOrder
                         disabled={totalValue < 0.01}
                         onClick={()=>{
@@ -276,7 +276,7 @@ export const CartPage = memo(function CartPage() {
                                     width: '500px'
                                 }}
                             >
-                                <Typography variant="h6"
+                                <span variant="h6"
                                             sx={{
                                                 fontFamily: 'Playfair Display',
                                                 fontWeight: 700,
@@ -286,7 +286,7 @@ export const CartPage = memo(function CartPage() {
                                                 textAlign: 'center',
                                             }}
                                 > Vui lòng điền đơn này
-                                </Typography>
+                                </span>
                                 <TextField
                                     required
                                     id="name-field"
@@ -371,7 +371,7 @@ export const CartPage = memo(function CartPage() {
                                     />
                                 }
 
-                                <Typography variant="h6"
+                                <span variant="h6"
                                             sx={{
                                                 fontFamily: 'be Vietnam',
                                                 fontWeight: 700,
@@ -381,8 +381,8 @@ export const CartPage = memo(function CartPage() {
                                                 textAlign: 'start',
                                             }}
                                 >Phí ship: {inPlace || province === 'Ha Noi' ? 0 : 30000}
-                                </Typography>
-                                <Typography variant="h6"
+                                </span>
+                                <span variant="h6"
                                             sx={{
                                                 fontFamily: 'be Vietnam',
                                                 fontWeight: 700,
@@ -392,7 +392,7 @@ export const CartPage = memo(function CartPage() {
                                                 textAlign: 'start',
                                             }}
                                 >Tổng đơn: {totalValue + (inPlace || province === 'Ha Noi' ? 0 : 30000)}
-                                </Typography>
+                                </span>
                                 <Button variant="contained"
                                         disabled={!validForm()}
                                         onClick={() => {
