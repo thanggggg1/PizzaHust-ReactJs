@@ -14,6 +14,7 @@ import {ImageSlider} from "../component/ImageSlider";
 import {useSelector} from "react-redux";
 import {BestTrendingItem} from "../component/BestTrendingItem";
 import {ComboItem} from "../component/ComboItem";
+import {ComboCarousel} from "../component/ComboCarousel";
 
 
 const TabPanel = memo((props) => {
@@ -86,7 +87,8 @@ export const Home = memo(function Home() {
     return (
         <Container>
             <Header/>
-            <ImageSlider/>
+            {/*<ImageSlider/>*/}
+            <ComboCarousel/>
             <ContentContainer>
                 <Box sx={{width: '100%'}}>
                     <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
@@ -226,7 +228,6 @@ const ContactSection = styled(Box)`
   padding: 0 24px;
 `
 const IconImage = styled('img')`
-  background-color: red;
   width: 20px;
   height: 20px;
   margin: 0 5px;

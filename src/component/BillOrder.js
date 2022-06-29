@@ -90,7 +90,7 @@ export const BillOrder = memo(function BillOrder(props){
                 <TextInfo>{`Tổng tiền: ${order['total payment']}`}</TextInfo>
                 <br/>
                 <br/>
-                <TextInfo>`Phí vận chuyển: ${order['shipping payment']}`</TextInfo>
+                <TextInfo>Phí vận chuyển: {order['shipping payment']}</TextInfo>
                 <br/>
                 <br/>
                 <StatusTextHeader>Trạng thái</StatusTextHeader>

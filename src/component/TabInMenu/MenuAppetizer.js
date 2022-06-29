@@ -1,4 +1,4 @@
-import React, {memo, useState} from "react";
+import React, {memo, useState,useEffect} from "react";
 import Stack from "@mui/material/Stack";
 import {useSelector} from "react-redux";
 import {CircularProgress, Grow, span, styled, Pagination} from "@mui/material";
@@ -18,7 +18,7 @@ export const CustomPagination = styled(Pagination)({
     }
 })
 
-export const MenuAppetizer = memo(function MenuAppetizer(){
+export const MenuAppetizer = memo(function MenuAppetizer(props){
     const category = 'appetizer';
     const categories = {
         'appetizer':{
@@ -39,9 +39,9 @@ export const MenuAppetizer = memo(function MenuAppetizer(){
     const totalPage = Math.ceil(ids.length / max);
     const pageList = [];
     for(let i = 1;i <= totalPage;i++)pageList.push(i);
-    // useEffect(()=>{
-    //     setSearch('');
-    // },[category])
+    useEffect(()=>{
+        setSearch(props.search);
+    },[props.search])
     return (
         <div>
             {

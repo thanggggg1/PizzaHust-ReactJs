@@ -36,7 +36,7 @@ export const CustomProduct = memo(function CustomProduct(props){
     for(let i=offset;i<offset + number;i++)range.push(i);
     return (
         <div style={{borderBottom: '1px solid #5B5959FF', paddingBottom: 20, marginBottom: 20}}>
-            <TextNormal>{label[category]} x{number}</TextNormal>
+            <TextNormal>{label[category].toUpperCase()} x{number}</TextNormal>
             <br/>
             <Box sx={{alignItems: 'center', display: 'flex', flexWrap: 'wrap'}}>
                 {

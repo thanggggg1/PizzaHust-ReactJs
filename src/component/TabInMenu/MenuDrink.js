@@ -1,10 +1,9 @@
-import React, {memo, useState} from "react";
-import Stack from "@mui/material/Stack";
+import React, {memo, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {CircularProgress, Grow, span, styled, Pagination} from "@mui/material";
+import {CircularProgress, Grow, Pagination, styled} from "@mui/material";
 import Box from "@mui/material/Box";
-import {BestReviewItem} from "../BestReviewItem";
 import {ExtraItemInMenu} from "../ExtraItemInMenu";
+
 
 export const CustomPagination = styled(Pagination)({
     "& .MuiPaginationItem-root": {
@@ -18,16 +17,16 @@ export const CustomPagination = styled(Pagination)({
     }
 })
 
-export const MenuDrink = memo(function MenuDrink(){
+export const MenuDrink = memo(function MenuDrink(props) {
     const category = 'drink';
     const categories = {
-        'drink':{
+        'drink': {
             selector: useSelector(state => state.drinks),
             menuName: 'Drinks',
             singlePath: '/drink/'
         }
     }
-    const [search,setSearch] = useState('');
+    const [search, setSearch] = useState('');
     //  const [ids,setids] = useState([]);
     const ids = categories[category].selector.ids;
     const [page, setPage] = useState(1);
@@ -38,59 +37,66 @@ export const MenuDrink = memo(function MenuDrink(){
     //const [page, setPage] = useState(1);
     const totalPage = Math.ceil(ids.length / max);
     const pageList = [];
-    for(let i = 1;i <= totalPage;i++)pageList.push(i);
-    // useEffect(()=>{
-    //     setSearch('');
-    // },[category])
+    for (let i = 1; i <= totalPage; i++) pageList.push(i);
+    useEffect(() => {
+        setSearch(props.search);
+    }, [props.search])
     return (
         <div>
             {
-                fetchingStatus === 'SUCCESS'?
+                fetchingStatus === 'SUCCESS' ?
                     <Box>
                         {
-                            pageList.map(p => {return(
-                                <Grow in={page===p} mountOnEnter unmountOnExit timeout={page===p ? 1000: 0}>
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            flexWrap: 'wrap',
-                                            justifyContent:'center'
-                                        }}
-                                    >
-                                        {
-                                            ids.filter(id=>
-                                                !search ? id : products[id].title.toUpperCase().includes(search.toString().toUpperCase())
-                                            )
-                                                .map((id, index) =>{
-                                                    return (index >= (page - 1)*max && index < page * max) &&
-                                                        <Box sx={{marginRight:4}}>
-                                                            <ExtraItemInMenu image={products[id].image_url} name={products[id].title}
-                                                                             rate={products[id].rating} price={products[id].price}
-                                                                             id = {id} link = {categories[category].singlePath + id}
-                                                                             category={category}
-                                                            />
-                                                        </Box>
-                                                })
-                                        }
-                                    </Box>
-                                </Grow>
-                            )})
+                            pageList.map(p => {
+                                return (
+                                    <Grow in={page === p} mountOnEnter unmountOnExit timeout={page === p ? 1000 : 0}>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                justifyContent: 'center'
+                                            }}
+                                        >
+                                            {
+                                                ids.filter(id =>
+                                                    !search ? id : products[id].title.toUpperCase().includes(search.toString().toUpperCase())
+                                                )
+                                                    .map((id, index) => {
+                                                        return (index >= (page - 1) * max && index < page * max) &&
+                                                            <Box sx={{marginRight: 4}}>
+                                                                <ExtraItemInMenu image={products[id].image_url}
+                                                                                 name={products[id].title}
+                                                                                 rate={products[id].rating}
+                                                                                 price={products[id].price}
+                                                                                 id={id}
+                                                                                 link={categories[category].singlePath + id}
+                                                                                 category={category}
+                                                                />
+                                                            </Box>
+                                                    })
+                                            }
+                                        </Box>
+                                    </Grow>
+                                )
+                            })
                         }
                     </Box>
                     :
-                    fetchingStatus === 'LOADING' || fetchingStatus === 'INITIAL'?
-                        <Box sx= {{width: '100%', alignItems: 'center'}}>
+                    fetchingStatus === 'LOADING' || fetchingStatus === 'INITIAL' ?
+                        <Box sx={{width: '100%', alignItems: 'center'}}>
                             <div>Hãy đợi một chút</div>
                             <CircularProgress/>
                         </Box>
-                        :<Box sx= {{width: '100%', alignItems: 'center'}}>
+                        : <Box sx={{width: '100%', alignItems: 'center'}}>
                             <div>Có vẻ có lỗi đã xảy ra
                             </div>
                         </Box>
             }
             <Box sx={{marginTop: '80px', alignItems: 'center', width: '100%', marginLeft: '40%'}}>
                 <CustomPagination variant="outlined" shape="rounded" count={totalPage}
-                                  onChange={(event, value) => {setPage(value)}} size="large" page={page}
+                                  onChange={(event, value) => {
+                                      setPage(value)
+                                  }} size="large" page={page}
                 />
             </Box>
         </div>

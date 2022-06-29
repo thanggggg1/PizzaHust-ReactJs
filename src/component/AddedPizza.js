@@ -69,7 +69,7 @@ export const AddedPizza = (props) => {
                                 }}
                                 src={IC_NEXT_NO_BORDER}/>
                         </div>
-                        <div>
+                        <div style={{display:'flex',alignItems:'center'}}>
                             <TextNormal>Đế:</TextNormal>
                             <ImageAction
                                 onClick = {() =>{

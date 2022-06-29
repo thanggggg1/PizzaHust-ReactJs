@@ -55,6 +55,7 @@ export const Menu = memo(function Menu() {
     const [value, setValue] = useState(1);
     const cart = useSelector(state => state.cart);
     const pizzas = useSelector(state => state.pizzas.entities);
+    const [search,setSearch] = useState('');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -86,28 +87,30 @@ export const Menu = memo(function Menu() {
                             label="Tìm kiếm..."
                             type="search"
                             variant="standard"
+                            value={search}
+                            onChange = {(e)=>setSearch(e.target.value)}
                             InputProps={{
                                 disableUnderline: true, // <== added this
                             }}
                         />
                     </SearchBar>
                     <TabPanel value={value} index={0}>
-                        <MenuPizza/>
+                        <MenuPizza search={search}/>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <MenuAppetizer/>
+                        <MenuAppetizer search={search}/>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        <MenuDessert/>
+                        <MenuDessert search={search}/>
                     </TabPanel>
                     <TabPanel value={value} index={3}>
-                        <MenuVegetable/>
+                        <MenuVegetable search={search}/>
                     </TabPanel>
                     <TabPanel value={value} index={4}>
-                        <MenuKid/>
+                        <MenuKid search={search}/>
                     </TabPanel>
                     <TabPanel value={value} index={5}>
-                        <MenuDrink/>
+                        <MenuDrink search={search}/>
                     </TabPanel>
                 </TabContainer>
                 <MyCartSection/>

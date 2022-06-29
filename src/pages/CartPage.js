@@ -92,7 +92,7 @@ export const CartPage = memo(function CartPage() {
     const pizzas = useSelector(state => state.pizzas.entities)
     const combos = useSelector(state => state.combos.entities)
     const makeOrder = () => {
-        const shipment = inPlace || province === 'Ha Noi' ? 0 : 30000
+        const shipment = inPlace || province === 'Ha Noi' ? 22000 : 40000
         const time = Date.now()
         const detail = {
             'pizza': [],
@@ -239,12 +239,12 @@ export const CartPage = memo(function CartPage() {
                         handleComboChange={handleComboChange}
                         handleExtraChange={handleExtraChange}
                     />
-                    <span variant="h6"
-                                sx={{
-                                    fontFamily: 'Playfair Display',
+                    <br/>
+                    <br/>
+                    <span
+                                style={{
                                     fontWeight: 700,
-                                    fontSize: '30px',
-                                    lineHeight: '52px',
+                                    fontSize: '32px',
                                     color: '#07143B',
                                     textAlign: 'start'
                                 }}
@@ -380,7 +380,7 @@ export const CartPage = memo(function CartPage() {
                                                 color: '#07143B',
                                                 textAlign: 'start',
                                             }}
-                                >Phí ship: {inPlace || province === 'Ha Noi' ? 0 : 30000}
+                                >Phí ship: {inPlace || province === 'Ha Noi' ? 22000 : 40000}
                                 </span>
                                 <span variant="h6"
                                             sx={{
@@ -391,7 +391,7 @@ export const CartPage = memo(function CartPage() {
                                                 color: '#07143B',
                                                 textAlign: 'start',
                                             }}
-                                >Tổng đơn: {totalValue + (inPlace || province === 'Ha Noi' ? 0 : 30000)}
+                                >Tổng đơn: {totalValue + (inPlace || province === 'Ha Noi' ? 22000 : 40000)}
                                 </span>
                                 <Button variant="contained"
                                         disabled={!validForm()}
@@ -441,6 +441,7 @@ export const CartPage = memo(function CartPage() {
 const Container = styled(Box)`
   margin-top: 48px;
   width: 100%;
+  background-color: #F4F1F1;
 `
 const BackgroundMenu = styled('div')`
   width: 100%;
@@ -469,5 +470,5 @@ const ContentContainer = styled(Box)`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: rgba(217, 217, 217, 0.6);
+  background-color: #F4F1F1;
 `

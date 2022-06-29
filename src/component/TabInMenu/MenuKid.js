@@ -1,8 +1,7 @@
-import React, {memo, useState} from "react";
+import React, {memo, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {CircularProgress, Grow, Pagination, styled} from "@mui/material";
 import Box from "@mui/material/Box";
-import {BestReviewItem} from "../BestReviewItem";
 import {ExtraItemInMenu} from "../ExtraItemInMenu";
 
 export const CustomPagination = styled(Pagination)({
@@ -17,7 +16,7 @@ export const CustomPagination = styled(Pagination)({
     }
 })
 
-export const MenuKid = memo(function MenuKid() {
+export const MenuKid = memo(function MenuKid(props) {
     const category = 'kid';
     const categories = {
         'kid': {
@@ -38,9 +37,9 @@ export const MenuKid = memo(function MenuKid() {
     const totalPage = Math.ceil(ids.length / max);
     const pageList = [];
     for (let i = 1; i <= totalPage; i++) pageList.push(i);
-    // useEffect(()=>{
-    //     setSearch('');
-    // },[category])
+    useEffect(() => {
+        setSearch(props.search);
+    }, [props.search])
     return (
         <div>
             {

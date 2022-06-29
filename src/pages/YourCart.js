@@ -13,7 +13,6 @@ const round = (num) => Math.round(num * 100) / 100;
 
 export const YourCart = memo(function YourCart(props) {
     const cart = useSelector(state => state.cart);
-    console.log('cart',cart)
     const cartExtras = useSelector(state => state.cartExtras);
     const cartCombos = useSelector(state => state.cartCombos);
     const allPizzas = useSelector(state => state.pizzas.entities);
@@ -143,7 +142,7 @@ const ContentContainer = styled(Box)`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: rgba(217, 217, 217, 0.6);
+  background-color: #F4F1F1;
 `
 const CartContainer = styled(Box)`
   background-color: #FFFBFB;

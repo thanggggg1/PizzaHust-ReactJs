@@ -108,9 +108,6 @@ export const ChooseCard = (props)=>{
                             width: '24px',
                             height: '24px'
                         }}
-                        onClick={() =>{
-                            navigate('/' + category + '/' + productId)
-                        }}
                     >
 
                         <InfoRounded

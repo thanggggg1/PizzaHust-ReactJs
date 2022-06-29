@@ -108,7 +108,6 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                                 <br/>
                                 <TextLight>Thời gian: {timeStart - timeEnd}</TextLight>
                             </InfoContent>
-                            <ImageSaleOff src={IMG_SALE_50_PERCENT}/>
                         </RightSection>
                     </InfoContainer>
                 </BoxContainer>
