@@ -7,7 +7,7 @@ const initialState = {
 }
 export const fetchAllVegetables = createAsyncThunk('vegetables/fetchAllVegetables', async ()=>{
     try{
-        const response = await axios.get('https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_vegetarian.json');
+        const response = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_vegetarian.json');
         return response.data;
     }catch(err){
         console.error(err)

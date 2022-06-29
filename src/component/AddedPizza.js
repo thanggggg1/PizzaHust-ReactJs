@@ -18,7 +18,11 @@ export const AddedPizza = (props) => {
             <RowSection>
                 <ColumnSection >
                     <ImageView src={product.image_url}/>
-                    <ChangeItem>
+                    <ChangeItem
+                        onClick={() =>{
+                            openModal(slotId)
+                        }}
+                    >
                         <TextChangeItem>ĐỔI MÓN</TextChangeItem>
                     </ChangeItem>
                 </ColumnSection>
@@ -29,7 +33,7 @@ export const AddedPizza = (props) => {
                     </RowSection>
                     <br/>
                     <RowSection style={{justifyContent:'space-between'}}>
-                        <div>
+                        <div style={{display:'flex',alignItems:'center'}}>
                             <TextNormal>Cỡ:</TextNormal>
                             <ImageAction
                                 onClick = {() =>{
@@ -80,7 +84,7 @@ export const AddedPizza = (props) => {
                                     })
                                 }}
                                 src={IC_BACK_NO_BORDER}/>
-                            <TextNormal>Đế giòn</TextNormal>
+                            <TextNormal>{product.type[pizzaInfo.type ? pizzaInfo.type: 0].slice(0, 10)}</TextNormal>
                             <ImageAction
                                 onClick = {() =>{
                                     const currentType = pizzaInfo.type ? pizzaInfo.type : 0

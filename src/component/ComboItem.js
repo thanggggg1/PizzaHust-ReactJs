@@ -7,8 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {ModalComboSelect} from "./ModalComboSelect";
 
 export const ComboItem = memo(function ComboItem(props) {
-    const timeStart = moment(props.combo.start).format('DD/MM/YYYY');
-    const timeEnd = moment(props.combo.end).format('DD/MM/YYYY');
+
     const [done,setDone]=useState(false);
     const navigate = useNavigate();
     const combo = props.combo;
@@ -16,6 +15,8 @@ export const ComboItem = memo(function ComboItem(props) {
     const switchHov = () => {
         setHov(prev => !prev);
     }
+    const timeStart = moment(combo.start).format('DD/MM/YYYY');
+    const timeEnd = moment(combo.end).format('DD/MM/YYYY');
     const valid = Date.now() / 1000 >= combo.start && Date.now() / 1000 <= combo.end
     return (
         <Container>

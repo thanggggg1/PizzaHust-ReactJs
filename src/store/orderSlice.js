@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const axios = require('axios')
 export const fetchOrders = createAsyncThunk('orders/fetchOrders', async() =>{
     try{
-        const result = await axios.get('https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/order.json') 
+        const result = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/order.json') 
         return result.data
     }catch(err){
         console.log(err)

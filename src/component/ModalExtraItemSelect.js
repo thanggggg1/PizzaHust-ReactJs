@@ -27,27 +27,27 @@ export const ModalExtraItemSelect = memo(function ModalExtraItemSelect(props) {
     const categories = {
         'dessert': {
             selector: useSelector(state => state.desserts),
-            link: 'https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_dessert/',
+            link: 'https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_dessert/',
             update: updateDessert
         },
         'drink': {
             selector: useSelector(state => state.drinks),
-            link: 'https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_drink/',
+            link: 'https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_drink/',
             update: updateDrink
         },
         'vegetable': {
             selector: useSelector(state => state.vegetables),
-            link: 'https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_vegetarian/',
+            link: 'https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_vegetarian/',
             update: updateVegetable
         },
         'kid': {
             selector: useSelector(state => state.kids),
-            link: 'https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_kid/',
+            link: 'https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_kid/',
             update: updateKid
         },
         'appetizer': {
             selector: useSelector(state => state.appetizers),
-            link: 'https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_appetizer/',
+            link: 'https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_appetizer/',
             update: updateAppetizer
         }
     }

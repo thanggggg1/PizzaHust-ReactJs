@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const axios = require('axios');
 export const fetchAllCombos = createAsyncThunk('combos/fetchAllCombos', async () =>{
     try{
-        const response = await axios.get('https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/combo.json');
+        const response = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/combo.json');
         return response.data;
     }catch(err){
         console.error(err)

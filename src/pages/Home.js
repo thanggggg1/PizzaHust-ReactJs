@@ -125,7 +125,7 @@ export const Home = memo(function Home() {
                                     {
                                         categories.map((category,index)=>{
                                             return(
-                                                category.selector.fetchingStatus === 'SUCCESS' &&
+                                                category.selector.fetchingStatus === 'SUCCESS' && (index<4) &&
                                                <div key={index} style={{margin:8}}>
                                                    <BestTrendingItem order = {category.mostOrder} category = {category.category}
                                                                      id= {category.mostId}

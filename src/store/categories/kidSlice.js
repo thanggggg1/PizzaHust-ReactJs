@@ -7,7 +7,7 @@ const initialState = {
 }
 export const fetchAllKids = createAsyncThunk('kids/fetchAllKids', async ()=>{
     try{
-        const response = await axios.get('https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_kid.json');
+        const response = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_kid.json');
         return response.data;
     }catch(err){
         console.error(err)

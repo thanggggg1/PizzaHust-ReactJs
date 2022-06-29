@@ -72,7 +72,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
             newPizza.comment = [...comments, newCmt]
             newPizza.rating = (pizza.rating * comments.length + yourRate) / (comments.length + 1)
             const result = await axios.put(
-                'https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_main_courses/' + productId + '/.json',
+                'https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_main_courses/' + productId + '/.json',
                 newPizza)
             if (result.status === 200) {
                 dispatch(updatePizza({id: productId, item: newPizza}))
@@ -133,14 +133,14 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                             <TextPrice>{pizza.price + sizes[size].type_price} đ</TextPrice>
                             <RowSection>
                                 <TextNormal style={{marginRight: 12}}>Cỡ: </TextNormal>
-                                <ButtonAction
-                                    onClick={() => sizeChanged(size, size > 0 ? size - 1 : 0)}
-                                    src={IC_BACK_NO_BORDER}/>
-                                <TextNormal
-                                    style={{marginRight: 12, marginLeft: 12}}>{sizes[size].type_detail}</TextNormal>
-                                <ButtonAction
-                                    onClick={() => sizeChanged(size, (size + 1) < sizes.length ? size + 1 : size)}
-                                    src={IC_NEXT_NO_BORDER}/>
+                                    <ButtonAction
+                                        onClick={() => sizeChanged(size, size > 0 ? size - 1 : 0)}
+                                        src={IC_BACK_NO_BORDER}/>
+                                    <TextNormal
+                                        style={{marginRight: 12, marginLeft: 12}}>{sizes[size].type_detail}</TextNormal>
+                                    <ButtonAction
+                                        onClick={() => sizeChanged(size, (size + 1) < sizes.length ? size + 1 : size)}
+                                        src={IC_NEXT_NO_BORDER}/>
                             </RowSection>
                             <RowSection>
                                 <TextNormal style={{marginRight: 12}}>Đế: </TextNormal>

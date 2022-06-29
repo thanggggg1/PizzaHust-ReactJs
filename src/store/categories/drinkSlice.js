@@ -7,7 +7,7 @@ const initialState = {
 }
 export const fetchAllDrinks = createAsyncThunk('drinks/fetchAllDrinks', async ()=>{
     try{
-        const response = await axios.get('https://pizzahust-d7124-default-rtdb.asia-southeast1.firebasedatabase.app/menu/menu_drink.json');
+        const response = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/menu/menu_drink.json');
         return response.data;
     }catch(err){
         console.error(err)
