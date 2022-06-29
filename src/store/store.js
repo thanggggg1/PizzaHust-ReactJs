@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
 import pizzaReducer from "./categories/pizzaSlice.js";
 import cartReducer from "./cartSlice";
 import comboReducer from "./comboSlice";
@@ -17,6 +17,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist:['cart','pizzas']
 }
 const rootReducer = combineReducers({
     pizzas: pizzaReducer,
@@ -33,5 +34,11 @@ const rootReducer = combineReducers({
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-export const store =  configureStore({reducer: persistedReducer});
+export const store =  configureStore({
+    reducer: persistedReducer,
+    middleware: getDefaultMiddleware({
+        serializableCheck: false,
+        immutableCheck: false,
+    })
+});
 export const persistor = persistStore(store);

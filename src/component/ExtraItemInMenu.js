@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 import {Rating} from "@mui/material";
 import {ModalPizzaSelect} from "./ModalPizzaSelect";
+import {ModalExtraItemSelect} from "./ModalExtraItemSelect";
 
 
 const StyledRating = styled(Rating)({
@@ -17,7 +18,7 @@ const StyledRating = styled(Rating)({
 });
 
 
-export const ItemInMenu = memo(function ItemInMenu(props) {
+export const ExtraItemInMenu = memo(function ExtraItemInMenu(props) {
     const navigate = useNavigate();
     const [done, setDone] = useState(false);
     const link = props.link;
@@ -50,7 +51,7 @@ export const ItemInMenu = memo(function ItemInMenu(props) {
                     </AddButton>
                 </RateView>
             </ContentContainer>
-            <ModalPizzaSelect done={done} id={props.id}/>
+            <ModalExtraItemSelect done={done} id={props.id} category={props.category}/>
         </Container>
     )
 })

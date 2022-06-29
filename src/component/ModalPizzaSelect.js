@@ -28,7 +28,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
     }, [isModalVisible, props.done])
 
     const navigate = useNavigate();
-    const location = useLocation();
+    const location = props.location || {};
     const dispatch = useDispatch();
     const productId = props.id;
     const pizza = useSelector(state => state.pizzas.entities[productId]);
