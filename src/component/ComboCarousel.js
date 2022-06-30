@@ -8,6 +8,7 @@ import SimpleImageSlider from "react-simple-image-slider";
 
 
 export const ComboCarousel = function () {
+    const navigate= useNavigate();
     const ids = useSelector(state => state.combos.ids);
     const combos = useSelector(state => state.combos.entities);
     const fetchingStatus = useSelector(state => state.combos.fetchingStatus);
@@ -27,6 +28,9 @@ export const ComboCarousel = function () {
                 showBullets={true}
                 showNavs={true}
                 autoPlay={true}
+                onClick={()=>{
+                    navigate('/combos/')
+                }}
             />
         </div>
     )

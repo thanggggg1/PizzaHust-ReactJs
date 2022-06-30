@@ -15,8 +15,9 @@ export const ComboItem = memo(function ComboItem(props) {
     const switchHov = () => {
         setHov(prev => !prev);
     }
-    const timeStart = moment(combo.start).format('DD/MM/YYYY');
-    const timeEnd = moment(combo.end).format('DD/MM/YYYY');
+    const timeStart = moment(combo.start*1000).format('DD/MM/YYYY');
+    const timeEnd = moment(combo.end*1000).format('DD/MM/YYYY');
+    console.log('combo',combo)
     const valid = Date.now() / 1000 >= combo.start && Date.now() / 1000 <= combo.end
     return (
         <Container>

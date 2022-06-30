@@ -384,7 +384,6 @@ export const CartPage = memo(function CartPage() {
                                 </span>
                                 <span variant="h6"
                                             sx={{
-                                                fontFamily: 'be Vietnam',
                                                 fontWeight: 700,
                                                 fontSize: '20px',
                                                 lineHeight: '52px',
@@ -400,16 +399,14 @@ export const CartPage = memo(function CartPage() {
                                             SetPay(false)
                                         }}
                                         sx={{
-                                            backgroundColor: '#EA6A12',
+                                            backgroundColor: '#ec393e',
                                             borderRadius: '100px',
                                             alignSelf: 'center',
-                                            fontFamily: 'be Vietnam',
                                             fontWeight: 'normal',
                                             fontSize: '15px',
-                                            lineHeight: '175%',
                                             color: 'white',
                                             '&:hover, &:active': {
-                                                backgroundColor: '#f57c00'
+                                                backgroundColor: '#ea5054'
                                             },
                                             marginBottom: 2,
                                             width: '150px'

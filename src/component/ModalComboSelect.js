@@ -314,79 +314,29 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                 </SelectFoodContainer>
                 <Modal open={done} >
                     <Fade in={done} timeout={500}>
-                        <Stack
+                        <StackModalAddCart
                             spacing={3}
-                            sx={{
-                                backgroundColor: 'white',
-                                borderRadius: '24px',
-                                width: '500px',
-                                p: 5,
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                alignItems: 'center'
-                            }}
+                            sx={{p: 5}}
                         >
-                            <span variant="h6"
-                                        sx={{
-                                            fontFamily: 'Playfair Display',
-                                            fontWeight: 700,
-                                            fontSize: '20px',
-                                            lineHeight: '52px',
-                                            color: '#07143B',
-                                            textAlign: 'center',
-                                        }}
-                            >Đã cập nhập giỏ hàng của bạn
-                            </span>
+                            <TextAddCart>Đã cập nhật giỏ hàng của bạn</TextAddCart>
                             <Stack direction="row" spacing={5}>
-                                <Button variant="contained"
+                                <ButtonModalAddToCart variant="contained"
                                         onClick = {()=>{
                                             setDone(false);
                                         }}
-                                        sx={{
-                                            backgroundColor: '#EA6A12',
-                                            borderRadius: '100px',
-                                            //maxWidth: '150px',
-                                            fontFamily: 'be Vietnam',
-                                            fontWeight: 'normal',
-                                            fontSize: '15px',
-                                            lineHeight: '175%',
-                                            color: 'white',
-                                            height: '45px',
-                                            '&:hover, &:active':{
-                                                backgroundColor: '#f57c00'
-                                            },
-                                            marginBottom: 2
-                                        }}
                                 >
                                     Xong
-                                </Button>
-                                <Button variant="contained"
+                                </ButtonModalAddToCart>
+                                <ButtonModalAddToCart variant="contained"
                                         onClick = {()=>{
                                             navigate('/cart');
                                         }}
-                                        sx={{
-                                            backgroundColor: '#EA6A12',
-                                            borderRadius: '100px',
-                                            //maxWidth: '150px',
-                                            height: '45px',
-                                            fontFamily: 'be Vietnam',
-                                            fontWeight: 'normal',
-                                            fontSize: '15px',
-                                            lineHeight: '175%',
-                                            color: 'white',
-                                            '&:hover, &:active':{
-                                                backgroundColor: '#f57c00'
-                                            },
-                                            marginBottom: 2
-                                        }}
                                 >
                                     Xem giỏ hàng
-                                </Button>
+                                </ButtonModalAddToCart>
                             </Stack>
 
-                        </Stack>
+                        </StackModalAddCart>
                     </Fade>
                 </Modal>
             </Container>
@@ -512,3 +462,31 @@ const AddToCart = styled(Button)`
   background-color: #E2D8D8;
   border-radius: 12px;
 `
+const StackModalAddCart =styled(Stack)`
+  background-color: white;
+  border-radius: 24px;
+  width: 500px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  align-items: center;
+`
+const TextAddCart = styled('span')`
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+`
+const ButtonModalAddToCart = styled(Button)({
+    backgroundColor: '#EC393E',
+    borderRadius: '100px',
+    //maxWidth: '150px',
+    fontSize: '15px',
+    lineHeight: '175%',
+    color: 'white',
+    height: '45px',
+    '&:hover, &:active': {
+        backgroundColor: '#EA4D52FF'
+    },
+    marginBottom: 2
+})
