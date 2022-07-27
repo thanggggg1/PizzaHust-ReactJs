@@ -96,7 +96,6 @@ export const ModalExtraItemSelect = memo(function ModalExtraItemSelect(props) {
             }
             closeCmt()
         } catch (err) {
-            console.log(err)
             setMess('Xin lỗi, có sự cố xảy ra')
             setPosted(true)
         }

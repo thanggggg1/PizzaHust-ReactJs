@@ -202,7 +202,6 @@ export const PizzaManageCard = (props) => {
     const DeleteHandle = async () => {
         try {
             const resp = await axios.delete(url);
-            console.log(resp);
             if (resp.statusText === "OK") {
                 // setInterval(window.location.reload(), 1000);
                 dispatch(categories[category].delete({id: id}));
@@ -492,10 +491,11 @@ export const PizzaManageCard = (props) => {
                         }
                         <Button variant="contained"
                                 onClick={() => {
-
-                                    if (hov === true) switchHov()
-                                    setEditPizza(false);
-                                    EditHandle()
+                                    if(checkItem()){
+                                        if (hov === true) switchHov()
+                                        setEditPizza(false);
+                                        EditHandle()
+                                    }
                                 }}
 
                                 sx={{

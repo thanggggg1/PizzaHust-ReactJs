@@ -5,7 +5,6 @@ export const fetchOrders = createAsyncThunk('orders/fetchOrders', async() =>{
         const result = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/order.json') 
         return result.data
     }catch(err){
-        console.log(err)
     }
 })
 const orderSlice = createSlice({
@@ -28,7 +27,6 @@ const orderSlice = createSlice({
         })
         .addCase(fetchOrders.fulfilled, (state, action)=>{
             state.entities = action.payload
-            console.log(state.entities)
             state.fetchingStatus='SUCCESS'
         })
         .addCase(fetchOrders.rejected, (state, action)=>{

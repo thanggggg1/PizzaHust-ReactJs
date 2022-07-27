@@ -44,7 +44,6 @@ export const CartPage = memo(function CartPage() {
     const totalCombo = cartCombos.ids.reduce((total, itemId) => {
         return round(total + cartCombos.entities[itemId].total)
     }, 0);
-    console.log('total1 - total2 - total3',totalPizza,totalExtra,totalCombo)
     const [totalValue, SetTotalValue] = useState(round(totalPizza + totalExtra + totalCombo));
     const handleCartChange = (_id) => {
         SetTotalValue(prev => round(prev - cart.entities[_id].total));
@@ -108,7 +107,6 @@ export const CartPage = memo(function CartPage() {
                 const cartPizza = cart.entities[cartId]
                 const pizzaId = cartPizza.pizzaId;
                 const pizza = pizzas[pizzaId]
-                console.log('size1',pizza)
                 orderedPizzas.push({
                     id: pizzaId,
                     size: pizza.size[cartPizza.size].type_detail,
@@ -132,7 +130,6 @@ export const CartPage = memo(function CartPage() {
                         const pizzaInfo = pizzaSlot[i].pizzaInfo
                         const pizzaId = pizzaSlot[i].productId
                         const pizza = pizzas[pizzaId]
-                        console.log('size2',pizza)
                         orderedPizzas.push({
                             id: pizzaId,
                             size: pizza.size[pizzaInfo.size].type_detail,
@@ -211,14 +208,12 @@ export const CartPage = memo(function CartPage() {
     }
     const postOrder = async () => {
         const order = makeOrder()
-        console.log('order',order)
         try {
             const result = await axios.post(
                 'https://pizzahust-c5035-default-rtdb.firebaseio.com/order.json',
                 order
             )
             if (result && result.status === 200) {
-                console.log(result)
                 setMessage('Thêm món thành công')
                 dispatch(addOrder({id: result.data.name, data: order}))
             } else setMessage('Có lỗi xảy ra!')

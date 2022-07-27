@@ -35,7 +35,6 @@ export const MenuPizza = memo(function MenuPizza(props){
     const products = categories[category].selector.entities
     // const ids = categories[category].selector.ids
     const max = 3;
-    console.log('id',ids)
     //const [page, setPage] = useState(1);
     const totalPage = Math.ceil(ids.length / max);
     const pageList = [];

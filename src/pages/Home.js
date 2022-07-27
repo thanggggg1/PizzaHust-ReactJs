@@ -88,7 +88,6 @@ export const Home = memo(function Home() {
         setValue(newValue);
     };
 
-    console.log('user',currentUser)
 
     return (
         <Container>

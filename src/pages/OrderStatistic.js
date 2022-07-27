@@ -8,32 +8,24 @@ export const OrderStatistic = memo(function OrderStatistic(){
     const [OrderLists,setOrderLists]=useState([]);
     useEffect(()=>{
         async function fetchOrderLists() {
-            const requestUrl='https://pizzahust-c5035-default-rtdb.firebaseio.com/menu.json';
+            const requestUrl='https://pizzahust-c5035-default-rtdb.firebaseio.com/order.json';
             const response = await fetch(requestUrl);
             const responseJSON = await response.json();
-
             setOrderLists(responseJSON);
-
-
         }
-
-        fetchOrderLists();
+        fetchOrderLists().then();
     },[])
-
     let totalpay = 0;
     let totaldish = 0;
     let totalcustomer =Object.values(OrderLists).length;
 
     Object.values(OrderLists).forEach(order => {
         totalpay += order['total payment'];
-
-
         const detail = order.detail;
         for (var pizza in detail){
             totaldish += detail[pizza].length;
         }
     });
-
     totalpay /= 1000;
     return (
         <Container>

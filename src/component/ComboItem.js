@@ -17,7 +17,6 @@ export const ComboItem = memo(function ComboItem(props) {
     }
     const timeStart = moment(combo.start*1000).format('DD/MM/YYYY');
     const timeEnd = moment(combo.end*1000).format('DD/MM/YYYY');
-    console.log('combo',combo)
     const valid = Date.now() / 1000 >= combo.start && Date.now() / 1000 <= combo.end
     return (
         <ContainerCombo>
@@ -83,7 +82,7 @@ const AddButtonCombo = styled(Button)({
     }
 })
 
-const AddTextCombo = styled('p')`
+const AddTextCombo = styled('span')`
   font-size: 12px;
   color: white;
 `

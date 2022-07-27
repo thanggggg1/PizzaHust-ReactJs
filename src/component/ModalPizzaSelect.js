@@ -84,7 +84,6 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
         } catch (err) {
             setMess('Sorry, Failed to post your comment')
             setPosted(true)
-            console.log(err)
         }
     }
     const handleAdd = (_id, add) => {

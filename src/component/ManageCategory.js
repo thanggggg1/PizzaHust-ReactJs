@@ -82,7 +82,6 @@ export const ComboManage = () => {
             label: 'Appetizer',
         },
     ];
-
     //Variable of new Combo
     const [title, setTitle] = useState('');
     const [subtitle, setSubTitle] = useState('');
@@ -101,7 +100,6 @@ export const ComboManage = () => {
     const [persons, setPerson] = useState('');
     const [pizza, setPizza] = useState('');
     //
-
     const [comboType, setComboType] = useState("off");
     const [type, setType] = useState(true);
     const [cmt, setCmt] = useState(false);
@@ -158,23 +156,6 @@ export const ComboManage = () => {
         Free.splice(index, 1);
         setFree(Free);
     }
-    // ...........
-
-
-    // const handleaddPizza = () => {
-    //     console.log( {
-    //         comment : [],
-    //         description : newDescription,
-    //         image_url : newImage,
-    //         order_number : 0,
-    //         price : newPrice,
-    //         rating: 0,
-    //         size: newSizes,
-    //         title: newName,
-    //         topping: newToppings,
-    //         type: ["Đế giòn","Đế mềm xốp truyền thống"]
-    //     })
-    // }
 
     //Check combo property
     const checkCombo = () => {
@@ -1153,10 +1134,10 @@ export const PizzaManage = (props) => {
 
                             <Button variant="contained"
                                     onClick={() => {
-
-                                        setAddPizza(false);
-                                        handleAddPizza();
-
+                                        if(checkItem()){
+                                            setAddPizza(false);
+                                            handleAddPizza();
+                                        }
                                     }}
                                     sx={{
                                         backgroundColor: '#EC393E',
