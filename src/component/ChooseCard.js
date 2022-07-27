@@ -62,7 +62,7 @@ export const ChooseCard = (props)=>{
                 />
                 <span variant="subtitle1"
                             sx={{
-                                fontFamily: 'be Vietnam',
+                                fontFamily: 'Josefin Sans',
                                 fontWeight: 600,
                                 fontSize: '16px',
                                 lineHeight: '175%',
@@ -74,11 +74,11 @@ export const ChooseCard = (props)=>{
                 </span>
                 <span variant="subtitle1"
                             sx={{
-                                fontFamily: 'be Vietnam',
+                                fontFamily: 'Josefin Sans',
                                 fontWeight: 600,
                                 fontSize: '13px',
                                 lineHeight: '175%',
-                                color: hov? 'white': '#EA6A12',
+                                color: hov? 'white': '#EC393E',
                                 textAlign: 'start'
                             }}
                 >$ {price}

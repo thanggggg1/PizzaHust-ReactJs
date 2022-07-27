@@ -245,7 +245,7 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                                         sx={{
                                             fontWeight: 500,
                                             fontSize: '20px',
-                                            color: '#EA6A12',
+                                            color: '#EC393E',
                                             textAlign: 'center',
                                             textOverflow: 'ellipsis',
                                             textDecoration: 'line-through'

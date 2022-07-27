@@ -287,8 +287,8 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                     multiline
                                     maxRows={1}
                                     color='warning'
-                                    inputProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input text
-                                    InputLabelProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input label
+                                    inputProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input text
+                                    InputLabelProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input label
                                     sx={{
                                         width: '100%'
                                     }}
@@ -304,8 +304,8 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                     multiline
                                     rows={4}
                                     maxRows={4}
-                                    inputProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input text
-                                    InputLabelProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input label
+                                    inputProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input text
+                                    InputLabelProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input label
                                     onChange={(e) => {
                                         setYourCmt(e.target.value)
                                     }}
@@ -315,7 +315,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                 >
                                     <span variant="h6"
                                                 sx={{
-                                                    fontFamily: 'be Vietnam',
+                                                    fontFamily: 'Josefin Sans',
                                                     fontWeight: 700,
                                                     fontSize: '15px',
                                                     lineHeight: '52px',
@@ -329,7 +329,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                             setYourRate(newRate)
                                         }}
                                         sx={{
-                                            color: '#EA6A12',
+                                            color: '#EC393E',
                                         }}
 
                                     />
@@ -338,7 +338,7 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                     (yourName.length === 0 || yourCmt.length === 0) &&
                                     (<span variant="h6"
                                                  sx={{
-                                                     fontFamily: 'be Vietnam',
+                                                     fontFamily: 'Josefin Sans',
                                                      fontWeight: 700,
                                                      fontSize: '15px',
                                                      lineHeight: '52px',
@@ -352,10 +352,10 @@ export const ModalPizzaSelect = memo(function ModalPizzaSelect(props) {
                                 <Button variant="contained"
                                         onClick={postComment}
                                         sx={{
-                                            backgroundColor: '#EA6A12',
+                                            backgroundColor: '#EC393E',
                                             borderRadius: '100px',
                                             alignSelf: 'center',
-                                            fontFamily: 'be Vietnam',
+                                            fontFamily: 'Josefin Sans',
                                             fontWeight: 'normal',
                                             fontSize: '15px',
                                             lineHeight: '175%',

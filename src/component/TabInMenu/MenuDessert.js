@@ -8,7 +8,7 @@ import {ExtraItemInMenu} from "../ExtraItemInMenu";
 
 export const CustomPagination = styled(Pagination)({
     "& .MuiPaginationItem-root": {
-        fontFamily: 'be Vietnam'
+        fontFamily: 'Josefin Sans'
     },
     "& .MuiPaginationItem-root:active": {
         backgroundColor: 'rgb(234, 106, 18, 0.5)',

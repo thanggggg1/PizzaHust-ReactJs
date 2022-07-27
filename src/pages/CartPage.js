@@ -298,8 +298,8 @@ export const CartPage = memo(function CartPage() {
                                     multiline
                                     maxRows={1}
                                     color='warning'
-                                    inputProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input text
-                                    InputLabelProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input label
+                                    inputProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input text
+                                    InputLabelProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input label
                                 />
                                 <TextField
                                     required
@@ -313,8 +313,8 @@ export const CartPage = memo(function CartPage() {
                                     type="number"
                                     maxRows={1}
                                     color='warning'
-                                    inputProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input text
-                                    InputLabelProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input label
+                                    inputProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input text
+                                    InputLabelProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input label
                                 />
                                 <FormControlLabel
                                     label="Đặt tại quán"
@@ -335,9 +335,9 @@ export const CartPage = memo(function CartPage() {
                                         onChange={(e) => {
                                             setProvince(e.target.value)
                                         }}
-                                        inputProps={{style: {fontFamily: 'be Vietnam'}}}
-                                        MenuProps={{style: {fontFamily: 'be Vietnam'}}}
-                                        SelectDisplayProps={{style: {fontFamily: 'be Vietnam'}}}
+                                        inputProps={{style: {fontFamily: 'Josefin Sans'}}}
+                                        MenuProps={{style: {fontFamily: 'Josefin Sans'}}}
+                                        SelectDisplayProps={{style: {fontFamily: 'Josefin Sans'}}}
                                         color='warning'
                                     >
                                         {
@@ -345,7 +345,7 @@ export const CartPage = memo(function CartPage() {
                                                 <MenuItem
                                                     value={pro}
                                                     sx={{
-                                                        fontFamily: 'be Vietnam'
+                                                        fontFamily: 'Josefin Sans'
                                                     }}
                                                 >
                                                     {pro}
@@ -366,14 +366,14 @@ export const CartPage = memo(function CartPage() {
                                         }}
                                         maxRows={1}
                                         color='warning'
-                                        inputProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input text
-                                        InputLabelProps={{style: {fontFamily: 'be Vietnam'}}} // font size of input label
+                                        inputProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input text
+                                        InputLabelProps={{style: {fontFamily: 'Josefin Sans'}}} // font size of input label
                                     />
                                 }
 
                                 <span variant="h6"
                                             sx={{
-                                                fontFamily: 'be Vietnam',
+                                                fontFamily: 'Josefin Sans',
                                                 fontWeight: 700,
                                                 fontSize: '15px',
                                                 lineHeight: '52px',

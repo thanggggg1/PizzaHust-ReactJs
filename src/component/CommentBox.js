@@ -19,7 +19,7 @@ export const CommentBox = memo(function CommentBox(props) {
                 <StarView>
                     <Rating value={comment.user_rating} readOnly
                             sx={{
-                                color: '#EA6A12',
+                                color: '#EC393E',
                             }}
                     />
                 </StarView>

@@ -1,16 +1,48 @@
-import React, {memo, useCallback, useState} from "react";
+import React, {memo, useCallback, useEffect, useRef, useState} from "react";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import {Header} from "../component/Header";
 import {IMG_BACKGROUND_LOGIN, IMG_PIZZA_LOGIN} from "../assets";
 import {Modal, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
+import {useNavigate} from "react-router-dom";
+import {useAuth} from "../context/AuthContext";
 
 export const Login = memo(function Login() {
     const [isModalVisible, setModalVisible] = useState(true);
     const toggleModal = useCallback(() => {
         setModalVisible(!isModalVisible)
     }, [isModalVisible])
+    const [userName,setUserName] = useState("");
+    const [pass,setPass] = useState("");
+    const [error,setError] = useState("");
+    const {login} = useAuth();
+    const navigate = useNavigate();
+    const btn = useRef(null);
+    const handleSubmit= async (e)=>{
+        e.preventDefault();
+        try{
+            setError('');
+            await login(userName,pass);
+            navigate('/');
+        }
+        catch{setError('error')}
+    };
+
+
+    useEffect(() => {
+        const listener = event => {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                btn.current.click();
+            }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+            document.removeEventListener("keydown", listener);
+        };
+    }, []);
+
     return (
         <Container>
             <Header/>
@@ -28,21 +60,36 @@ export const Login = memo(function Login() {
                         <TextNormal>Email</TextNormal>
                         <br/>
                         <InputText
+                            value={userName}
                             variant="standard" // <== changed this
                             placeholder="Email"
                             InputProps={{
                                 disableUnderline: true, // <== added this
-                            }}                        />
+                            }}
+                            onChange = { e => setUserName(e.target.value)}
+
+                        />
 
                         <TextNormal>Mật khẩu</TextNormal>
                         <InputText
+                            value={pass}
                             variant="standard" // <== changed this
                             placeholder="Mật khẩu"
                             InputProps={{
                                 disableUnderline: true, // <== added this
-                            }}                        />
+                            }}
+                            onChange={e=>setPass(e.target.value)}
+
+                        />
                         <TextNormal style={{color:'#9A9A9AFF',fontSize:12}}>Quên mật khẩu?</TextNormal>
-                        <ButtonLogin>
+                        {error &&
+                            <h3 style={{textAlign:'left',justifyContent:'left',fontSize:'15px',opacity:'0.5',marginLeft:'50px',color:'red'}}>
+                                Tên đăng nhập hoặc mật khẩu không đúng
+                            </h3>}
+                        <ButtonLogin
+                            onClick = {e => handleSubmit(e)}
+                            ref = {btn}
+                        >
                             <TextNormal style={{color:"white"}}>ĐĂNG NHẬP</TextNormal>
                         </ButtonLogin>
                     </RightSection>
@@ -62,8 +109,6 @@ const ImageBackground = styled('img')`
 `
 const BoxLogin = styled(Box)`
   display: flex;
-  width: 480px;
-  height: 260px;
   background-color: #F6F6F7;
   position: absolute;
   top: 50%;

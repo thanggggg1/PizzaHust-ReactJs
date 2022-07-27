@@ -16,6 +16,9 @@ import {SaleCombos} from "./pages/SaleCombos";
 import {Order} from "./pages/Order";
 import {YourCart} from "./pages/YourCart";
 import {CartPage} from "./pages/CartPage";
+import {Login} from "./pages/Login";
+import {ManagePage} from "./pages/ManagePage";
+import {OrderStatistic} from "./pages/OrderStatistic";
 
 function App() {
     const dispatch = useDispatch()
@@ -48,6 +51,9 @@ function App() {
                         <Route path="/combos" element={<SaleCombos/>}/>
                         <Route path="/order" element={<Order/>}/>
                         <Route path="/cart" element={<CartPage/>}/>
+                        <Route exact path='/login' element ={<Login/>}/>
+                        <Route path="/manage_menu" element={<ManagePage/>}/>
+                        <Route  path='/order_report' element ={ <OrderStatistic/>}/>
                     </Routes>
                 </Box>
             </AuthContextProvider>

@@ -20,31 +20,31 @@ export const ComboItem = memo(function ComboItem(props) {
     console.log('combo',combo)
     const valid = Date.now() / 1000 >= combo.start && Date.now() / 1000 <= combo.end
     return (
-        <Container>
-            <ImageItem src={combo.banner}/>
+        <ContainerCombo>
+            <ImageItemCombo src={combo.banner}/>
             <div style={{padding: 8, display: "flex", flexDirection: "column", backgroundColor: '#FFF9F9'}}>
-                <TextBold>{combo.title}</TextBold>
-                <TextNormal>{combo.description}</TextNormal>
+                <TextBoldCombo>{combo.title}</TextBoldCombo>
+                <TextNormalCombo>{combo.description}</TextNormalCombo>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <TextLight>{`Combo dành cho: ${combo.persons} người`}</TextLight>
-                        <TextLight>{combo.off && combo.off > 0 ? combo.off + ' %Off' : 'Bonus'}</TextLight>
-                        <TextLight>{`Thời gian: ${timeStart} - ${timeEnd}`}</TextLight>
+                        <TextLightCombo>{`Combo dành cho: ${combo.persons} người`}</TextLightCombo>
+                        <TextLightCombo>{combo.off && combo.off > 0 ? combo.off + ' %Off' : 'Bonus'}</TextLightCombo>
+                        <TextLightCombo>{`Thời gian: ${timeStart} - ${timeEnd}`}</TextLightCombo>
                     </div>
-                    <AddButton
+                    <AddButtonCombo
                         onClick={()=>{
                             setDone(!done)
                         }}
                     >
-                        <AddText>CHỌN</AddText>
-                    </AddButton>
+                        <AddTextCombo>CHỌN</AddTextCombo>
+                    </AddButtonCombo>
                 </div>
             </div>
             <ModalComboSelect done={done} id={props.comboId}/>
-        </Container>
+        </ContainerCombo>
     )
 })
-const Container = styled(Box)`
+const ContainerCombo = styled(Box)`
   display: flex;
   background-color: white;
   border-radius: 12px;
@@ -53,27 +53,27 @@ const Container = styled(Box)`
   -webkit-box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
   -moz-box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
 `
-const ImageItem = styled('img')`
+const ImageItemCombo = styled('img')`
   width: 100%;
 `
-const TextBold = styled('span')`
+const TextBoldCombo = styled('span')`
   font-size: 20px;
   color: black;
   margin-bottom: 8px;
 `
-const TextNormal = styled('span')`
+const TextNormalCombo = styled('span')`
   font-size: 16px;
   color: #424242;
   margin-bottom: 8px;
 
 `
-const TextLight = styled('span')`
+const TextLightCombo = styled('span')`
   font-size: 12px;
   color: #8d8a8a;
   margin-bottom: 4px;
 
 `
-const AddButton = styled(Button)({
+const AddButtonCombo = styled(Button)({
     width: 32,
     height: 28,
     backgroundColor: '#E2D8D8',
@@ -83,7 +83,7 @@ const AddButton = styled(Button)({
     }
 })
 
-const AddText = styled('p')`
+const AddTextCombo = styled('p')`
   font-size: 12px;
   color: white;
 `

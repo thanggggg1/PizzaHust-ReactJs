@@ -15,6 +15,8 @@ import {useSelector} from "react-redux";
 import {BestTrendingItem} from "../component/BestTrendingItem";
 import {ComboItem} from "../component/ComboItem";
 import {ComboCarousel} from "../component/ComboCarousel";
+import {useNavigate} from "react-router-dom";
+import {useAuth} from "../context/AuthContext";
 
 
 const TabPanel = memo((props) => {
@@ -69,6 +71,8 @@ export const Home = memo(function Home() {
     const [search, setSearch] = useState('');
     const pizzas = useSelector(state => state.pizzas);
     const fetchingStatus = pizzas.fetchingStatus;
+    const navigate = useNavigate();
+    const {currentUser} = useAuth();
     const ids=categories.length;
     const max = 3;
     const totalPage = Math.ceil(ids.length / max);
@@ -83,6 +87,8 @@ export const Home = memo(function Home() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    console.log('user',currentUser)
 
     return (
         <Container>
@@ -155,7 +161,9 @@ export const Home = memo(function Home() {
                             <IconImage src={IC_GMAIL}/>
                             <IconImage src={IC_INSTAGRAM}/>
                         </div>
-                        <Button style={{borderColor: "white", color: 'white'}} variant="outlined">Đăng nhập QTV</Button>
+                        <Button style={{borderColor: "white", color: 'white'}} variant="outlined" onClick={()=>{
+                            navigate('/login')
+                        }}>Đăng nhập QTV</Button>
                     </ConnectView>
                     <div>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -245,7 +253,7 @@ const TextStyle = styled('p')`
 `
 const CustomPagination = styled(Pagination)({
     "& .MuiPaginationItem-root": {
-        fontFamily: 'be Vietnam'
+        fontFamily: 'Josefin Sans'
     },
     "& .MuiPaginationItem-root:active": {
         backgroundColor: 'rgb(234, 106, 18, 0.5)',
