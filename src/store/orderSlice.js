@@ -5,6 +5,7 @@ export const fetchOrders = createAsyncThunk('orders/fetchOrders', async() =>{
         const result = await axios.get('https://pizzahust-c5035-default-rtdb.firebaseio.com/order.json') 
         return result.data
     }catch(err){
+        console.log('ko lay dc order',err)
     }
 })
 const orderSlice = createSlice({

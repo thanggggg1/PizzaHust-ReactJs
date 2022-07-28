@@ -17,6 +17,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist:['orders','cart']
 }
 const rootReducer = combineReducers({
     pizzas: pizzaReducer,

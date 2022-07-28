@@ -60,9 +60,7 @@ const Container = styled(Box)`
   background-color: #FFF9F9;
   flex-direction: column;
   border-radius: 20px;
-  box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 4px 0px #00000040;
   height: 320px;
   width: 200px;
 `
@@ -73,6 +71,8 @@ const ContentContainer = styled(Box)`
   background-color: #FFF9F9;
 `
 const ImageFood = styled('img')`
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   width: 200px;
   height: 200px;
 `

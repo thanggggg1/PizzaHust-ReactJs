@@ -19,7 +19,7 @@ import {CartPage} from "./pages/CartPage";
 import {Login} from "./pages/Login";
 import {ManagePage} from "./pages/ManagePage";
 import {OrderStatistic} from "./pages/OrderStatistic";
-
+import './index.css'
 function App() {
     const dispatch = useDispatch()
     useEffect(() => {

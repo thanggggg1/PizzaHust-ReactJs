@@ -55,7 +55,7 @@ export const ComboItemYourCart = memo(function ComboItemYourCart(props) {
     return (
         <Container>
             <ImagePizza src={combo.image}/>
-            <div style={{display: 'flex', justifyContent: 'space-between', padding: 12}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', padding: 12,width:'100%'}}>
                 <LeftSection>
                     <TextNormal>{combo.title}</TextNormal>
                     <br/>
@@ -135,13 +135,14 @@ export const ComboItemYourCart = memo(function ComboItemYourCart(props) {
 const Container = styled(Box)`
   display: flex;
   background-color: white;
+  width:520px;
   border-radius: 20px;
-  box-shadow: 5px 6px 8px -3px rgba(84, 66, 66, 0.75);
-  -webkit-box-shadow: 5px 6px 8px -3px rgba(84, 66, 66, 0.75);
-  -moz-box-shadow: 5px 6px 8px -3px rgba(84, 66, 66, 0.75);
+  box-shadow: 2px 2px 4px 0px #00000040;
   margin: 20px 0;
 `
 const ImagePizza = styled('img')`
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   width: 180px;
   height: 100%;
 `

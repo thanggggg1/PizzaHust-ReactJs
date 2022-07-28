@@ -126,7 +126,8 @@ const LogoImage = styled('img')({
 
 const CartImage = styled('img')({
     width: 32,
-    height: 32
+    height: 32,
+    cursor:'pointer'
 })
 
 const ButtonCustom = styled('button')`

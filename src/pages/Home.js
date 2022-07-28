@@ -263,6 +263,10 @@ const CustomPagination = styled(Pagination)({
 })
 const AntTab = styled(Tab)({
     color: 'rgba(0,0,0,0.85)',
+    fontSize:12,
+    fontFamily:'Josefin Sans',
+    fontStyle:'normal',
+    fontWeight:400,
     '&:hover': {
         color: '#EC393E'
     },

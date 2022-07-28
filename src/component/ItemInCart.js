@@ -26,13 +26,11 @@ export const ItemInCart = memo(function ItemInCart(props) {
 const Container = styled(Box)`
   display: flex;
   width: 90%;
-  //border-radius: 20px;
+  height: 100px;
   background-color: rgba(238, 238, 238, 0.5);
   padding-left: 12px;
   justify-content: space-between;
-  box-shadow: -6px 6px 8px -3px rgba(84,66,66,0.75);
-  -webkit-box-shadow: -6px 6px 8px -3px rgba(84,66,66,0.75);
-  -moz-box-shadow: -6px 6px 8px -3px rgba(84,66,66,0.75);
+  box-shadow: 2px 2px 4px 0px #00000040;
   border-radius: 12px;
 `
 const ImageFood=styled('img')`

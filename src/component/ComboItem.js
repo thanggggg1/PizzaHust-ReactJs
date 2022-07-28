@@ -45,14 +45,15 @@ export const ComboItem = memo(function ComboItem(props) {
 })
 const ContainerCombo = styled(Box)`
   display: flex;
-  background-color: white;
+  background-color: #FFF9F9;
   border-radius: 12px;
   flex-direction: column;
-  box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
-  -webkit-box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
-  -moz-box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
+  box-shadow: 2px 2px 4px 0px #00000040;
+  height: 320px;
 `
 const ImageItemCombo = styled('img')`
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
   width: 100%;
 `
 const TextBoldCombo = styled('span')`

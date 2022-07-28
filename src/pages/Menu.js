@@ -161,6 +161,10 @@ const AntTabs = styled(Tabs)({
 
 const AntTab = styled(Tab)({
     color: 'rgba(0,0,0,0.85)',
+    fontSize:12,
+    fontFamily:'Josefin Sans',
+    fontStyle:'normal',
+    fontWeight:400,
     '&:hover': {
         color: '#EC393E'
     },
@@ -175,13 +179,10 @@ const SearchBar = styled(Box)`
   align-items: center;
   padding-left: 12px;
   border-radius: 24px;
-  box-shadow: -5px -4px 8px 2px rgba(158, 158, 158, 0.55);
-  -webkit-box-shadow: -5px -4px 8px 2px rgba(158, 158, 158, 0.55);
-  -moz-box-shadow: -5px -4px 8px 2px rgba(158, 158, 158, 0.55);
+  box-shadow: 2px 2px 4px 0px #00000040 inset;
   margin-top: 12px;
   position: absolute;
   right: 8px;
-
 `
 const IconSearch = styled('img')`
   width: 16px;

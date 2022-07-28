@@ -203,7 +203,7 @@ export const PizzaManageCard = (props) => {
         try {
             const resp = await axios.delete(url);
             if (resp.statusText === "OK") {
-                // setInterval(window.location.reload(), 1000);
+                setInterval(window.location.reload(), 1000);
                 dispatch(categories[category].delete({id: id}));
             }
         } catch (err) {
@@ -211,11 +211,6 @@ export const PizzaManageCard = (props) => {
             console.error(err);
         }
     }
-    // onMouseEnter={switchHov}
-    // onMouseLeave = {() => {if(hov === true) switchHov()}}
-    // sx={{
-    //     backgroundColor: hov ?'rgba(234, 106, 18, 0.7)': 'rgba(255, 255, 255, 0.4)',
-    // }}
     return (
         <Box
             sx={{
@@ -1271,9 +1266,7 @@ const Container = styled(Box)`
   background-color: #FFF9F9;
   flex-direction: column;
   border-radius: 20px;
-  box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 10px 10px 5px -7px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 4px 0px #00000040;
   height: 320px;
   width: 200px;
 `
@@ -1284,6 +1277,8 @@ const ContentContainer = styled(Box)`
   background-color: #FFF9F9;
 `
 const ImageFood = styled('img')`
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   width: 200px;
   height: 200px;
 `
@@ -1320,9 +1315,8 @@ const ContainerCombo = styled(Box)`
   background-color: white;
   border-radius: 12px;
   flex-direction: column;
-  box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
-  -webkit-box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
-  -moz-box-shadow: 9px 9px 8px -3px rgba(84, 66, 66, 0.75);
+  box-shadow: 2px 2px 4px 0px #00000040;
+
 `
 const ImageItemCombo = styled('img')`
   width: 100%;

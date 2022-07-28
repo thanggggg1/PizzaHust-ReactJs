@@ -13,20 +13,21 @@ export const Login = memo(function Login() {
     const toggleModal = useCallback(() => {
         setModalVisible(!isModalVisible)
     }, [isModalVisible])
-    const [userName,setUserName] = useState("");
-    const [pass,setPass] = useState("");
-    const [error,setError] = useState("");
+    const [userName, setUserName] = useState("");
+    const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
     const {login} = useAuth();
     const navigate = useNavigate();
     const btn = useRef(null);
-    const handleSubmit= async (e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
+        try {
             setError('');
-            await login(userName,pass);
+            await login(userName, pass);
             navigate('/');
+        } catch {
+            setError('error')
         }
-        catch{setError('error')}
     };
 
 
@@ -56,7 +57,7 @@ export const Login = memo(function Login() {
                         <LeftImage src={IMG_PIZZA_LOGIN}/>
                     </LeftSection>
                     <RightSection>
-<LoginHeader>ĐĂNG NHẬP</LoginHeader>
+                        <LoginHeader>ĐĂNG NHẬP</LoginHeader>
                         <TextNormal>Email</TextNormal>
                         <br/>
                         <InputText
@@ -66,31 +67,39 @@ export const Login = memo(function Login() {
                             InputProps={{
                                 disableUnderline: true, // <== added this
                             }}
-                            onChange = { e => setUserName(e.target.value)}
+                            onChange={e => setUserName(e.target.value)}
 
                         />
 
                         <TextNormal>Mật khẩu</TextNormal>
                         <InputText
                             value={pass}
+                            type='password'
                             variant="standard" // <== changed this
                             placeholder="Mật khẩu"
                             InputProps={{
                                 disableUnderline: true, // <== added this
                             }}
-                            onChange={e=>setPass(e.target.value)}
+                            onChange={e => setPass(e.target.value)}
 
                         />
-                        <TextNormal style={{color:'#9A9A9AFF',fontSize:12}}>Quên mật khẩu?</TextNormal>
+                        <TextNormal style={{color: '#9A9A9AFF', fontSize: 12}}>Quên mật khẩu?</TextNormal>
                         {error &&
-                            <h3 style={{textAlign:'left',justifyContent:'left',fontSize:'15px',opacity:'0.5',marginLeft:'50px',color:'red'}}>
+                            <h3 style={{
+                                textAlign: 'left',
+                                justifyContent: 'left',
+                                fontSize: '15px',
+                                opacity: '0.5',
+                                marginLeft: '50px',
+                                color: 'red'
+                            }}>
                                 Tên đăng nhập hoặc mật khẩu không đúng
                             </h3>}
                         <ButtonLogin
-                            onClick = {e => handleSubmit(e)}
-                            ref = {btn}
+                            onClick={e => handleSubmit(e)}
+                            ref={btn}
                         >
-                            <TextNormal style={{color:"white"}}>ĐĂNG NHẬP</TextNormal>
+                            <TextNormal style={{color: "white"}}>ĐĂNG NHẬP</TextNormal>
                         </ButtonLogin>
                     </RightSection>
                 </BoxLogin>
@@ -101,7 +110,7 @@ export const Login = memo(function Login() {
 const Container = styled(Box)`
   margin-top: 48px;
   background-color: #F4F1F1;
-  outline:none;
+  outline: none;
 `
 const ImageBackground = styled('img')`
   width: 100%;
@@ -118,9 +127,9 @@ const BoxLogin = styled(Box)`
 `
 
 const LeftSection = styled('div')`
-    
+
 `
-const LeftImage=styled('img')`
+const LeftImage = styled('img')`
   width: 100%;
   height: 100%;
 `
@@ -133,22 +142,20 @@ const LoginHeader = styled('p')`
 const TextNormal = styled('span')`
   color: black;
 `
-const InputText=styled(TextField)`
+const InputText = styled(TextField)`
   display: flex;
   justify-content: center;
-background-color: white;
+  background-color: white;
   border-radius: 8px;
   width: 80%;
-  box-shadow: -5px -4px 8px -3px rgba(84,66,66,0.75);
-  -webkit-box-shadow: -5px -4px 8px -3px rgba(84,66,66,0.75);
-  -moz-box-shadow: -5px -4px 8px -3px rgba(84,66,66,0.75);
+  box-shadow: 2px 2px 4px 0px #00000040;
   height: 32px;
   padding-left: 12px;
   margin-top: 8px;
   margin-bottom: 8px;
 `
-const ButtonLogin=styled(Button)`
-width: 80%;
+const ButtonLogin = styled(Button)`
+  width: 80%;
   height: 32px;
   background-color: #EC393E;
   border-radius: 12px;
