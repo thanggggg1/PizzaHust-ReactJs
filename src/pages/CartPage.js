@@ -375,7 +375,7 @@ export const CartPage = memo(function CartPage() {
                                                 color: '#07143B',
                                                 textAlign: 'start',
                                             }}
-                                >Phí ship: {inPlace || province === 'Ha Noi' ? 22000 : 40000}
+                                >Phí ship: {inPlace  ? 0 : (province === 'Ha Noi' ? 22000 : 40000)}
                                 </span>
                                 <span variant="h6"
                                             sx={{
