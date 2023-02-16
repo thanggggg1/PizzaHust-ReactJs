@@ -118,9 +118,11 @@ export const Order = memo(function Order() {
     )
 })
 const Container = styled(Box)`
-  margin-top: 48px;
+  margin-top: 60px;
   background-color: #F4F1F1;
   outline: none;
+  min-height: calc(100vh - 60px);
+  overflow-y: scroll;
 `
 const BackgroundMenu = styled('div')`
   width: 100%;
@@ -136,6 +138,7 @@ const ContentContainer = styled(Box)`
   flex-grow: 1;
   background-color: #F4F1F1;
   margin: 16px 80px;
+  min-height: cals(100vh - 120px);
 `
 
 const HistoryOrder = styled(Box)`

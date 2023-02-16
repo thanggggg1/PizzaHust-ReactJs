@@ -59,9 +59,12 @@ export const SaleCombos=memo(function SaleCombos(){
     )
 })
 const Container = styled(Box)`
-  margin-top: 48px;
+  margin-top: 60px;
   width: 100%;
   background-color: black;
+  min-height: calc(100vh - 60px);
+
+  overflow-y: scroll;
 `
 const BackgroundMenu = styled('div')`
   width: 100%;
@@ -76,6 +79,8 @@ const BackgroundMenu = styled('div')`
 
 const ContentContainer = styled(Box)`
 flex-grow: 1;
-  background-color: white;
+  background-color: #E2D8D8;
   padding: 24px 36px;
+  min-height: calc(100vh - 120px);
+  height: fit-content;
 `

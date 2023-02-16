@@ -117,6 +117,7 @@ const Container = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 1;
 `
 const LogoImage = styled('img')({
     width: 180,

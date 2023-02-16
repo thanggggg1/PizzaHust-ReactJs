@@ -89,7 +89,7 @@ export const ModalComboSelect = memo(function ModalComboSelect(props) {
                         borderBottom: '1px solid black',
                         fontSize: 12,
                         color: "#5B5959FF",
-                        marginTop: 8
+                        marginTop: 8,
                     }}>
                         {combo.title}
                     </div>
@@ -361,8 +361,8 @@ const BoxContainer = styled(Box)`
   padding: 16px;
 `
 
-const ImageCombo = styled('img')`
-  width: 100%;
+const ImageCombo = styled('div')`
+  width: 100%
   height: 100%;
 `
 const InfoContainer = styled(Box)`
