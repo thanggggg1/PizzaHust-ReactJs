@@ -30,7 +30,9 @@ const TabPanel = memo((props) => {
             {...other}
         >
             {value === index && (
-                <Box sx={{padding: 4}}>
+                <Box sx={{
+                    padding: 4,
+                    }}>
                     {children}
                 </Box>
             )}
@@ -74,7 +76,7 @@ export const Home = memo(function Home() {
     const navigate = useNavigate();
     const {currentUser} = useAuth();
     const ids=categories.length;
-    const max = 3;
+    const max = 8;
     const totalPage = Math.ceil(ids.length / max);
     const pageList = [];
     for(let i = 1;i <= totalPage;i++)pageList.push(i);
@@ -111,10 +113,10 @@ export const Home = memo(function Home() {
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={1}>
-                        <Stack direction={'row'} spacing={2}>
+                        <Stack direction={'row'} spacing={'auto'}>
                             {
                                 fetchingStatus === 'SUCCESS' ? sortedIds.map((id, index) => {
-                                    return (index < 4) && <div key={index}>
+                                    return (index < 6) && <div key={index}>
                                         <BestReviewItem image={pizzas.entities[id].image_url}
                                                         name={pizzas.entities[id].title}
                                                         rate={pizzas.entities[id].rating}
@@ -128,11 +130,14 @@ export const Home = memo(function Home() {
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         {
-                                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} >
+                                <Grid container 
+                                direction = 'row'
+                                alignItems= 'center'
+                                justifyContent = 'center' spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} >
                                     {
                                         categories.map((category,index)=>{
                                             return(
-                                                category.selector.fetchingStatus === 'SUCCESS' && (index<4) &&
+                                                category.selector.fetchingStatus === 'SUCCESS' && (index<6) &&
                                                <div key={index} style={{margin:8}}>
                                                    <BestTrendingItem order = {category.mostOrder} category = {category.category}
                                                                      id= {category.mostId}

@@ -143,6 +143,9 @@ const ContentContainer = styled(Box)`
   justify-content: center;
   width: 100%;
   background-color: #F4F1F1;
+  min-height: calc(100vh - 60px);
+  height: fit-content
+  overflow-y: scroll;
 `
 const CartContainer = styled(Box)`
   background-color: #FFFBFB;

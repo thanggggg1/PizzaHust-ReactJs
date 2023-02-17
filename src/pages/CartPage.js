@@ -228,7 +228,7 @@ export const CartPage = memo(function CartPage() {
             <Header/>
             <BackgroundMenu>YOUR CART</BackgroundMenu>
             {totalValue > 1 ?
-                <ContentContainer>
+                (<ContentContainer>
                 <YourCart
                         handleCartChange={handleCartChange}
                         handleComboChange={handleComboChange}
@@ -421,19 +421,23 @@ export const CartPage = memo(function CartPage() {
                         autoHideDuration={6000}
                     />
                 </ContentContainer>
-                : <EmptyCart
+                ):(<EmptyCart
                     title={'GIỎ HÀNG CỦA BẠN ĐANG TRỐNG'}
                     content={'Hiện tại bạn chưa có sản phẩm nào trong giỏ hàng. ' +
                         'Hãy dạo một vòng Thực đơn ' +
                         'để chọn sản phẩm yêu thích nhé, PizzaHUST có nhiều món ngon lắm!'}
-                />}
+                />)}
         </Container>
     )
 })
 const Container = styled(Box)`
-  margin-top: 48px;
+  margin-top: 60px;
   width: 100%;
   background-color: #F4F1F1;
+  min-height: calc(100vh - 60px);
+  height: fit-content;
+  overflow-y: scroll;
+
 `
 const BackgroundMenu = styled('div')`
   width: 100%;
@@ -463,4 +467,6 @@ const ContentContainer = styled(Box)`
   justify-content: center;
   width: 100%;
   background-color: #F4F1F1;
+  min-height: calc(100vh - 120px);
+  height: fit-content;
 `

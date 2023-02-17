@@ -116,7 +116,7 @@ export const ComboItemYourCart = memo(function ComboItemYourCart(props) {
                                         const range = []
                                         for(let i = 0; i < category.number;i++)range.push(i)
                                         return range.map(i =>{
-                                            const productId = category.slot[i].productId
+                                            const productId = category.slot[i]?.productId
                                             return productId && category.selector[productId] && <ComboMiniItem
                                                 image = {category.selector[productId].image_url}
                                                 title = {category.selector[productId].title}/>

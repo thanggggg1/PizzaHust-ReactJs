@@ -113,13 +113,16 @@ export const Menu = memo(function Menu() {
     )
 })
 const Container = styled(Box)`
-  margin-top: 48px;
+  margin-top: 60px;
   width: 100%;
   display: flex;
   flex: 1;
   background-color: black;
   justify-content: center;
   flex-direction: column;
+  min-height: calc(100vh - 60px);
+
+  overflow-y: scroll;
 `
 const BackgroundMenu = styled('div')`
   width: 100%;
@@ -135,7 +138,8 @@ const BackgroundMenu = styled('div')`
 const ContentContainer = styled(Box)`
   display: flex;
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 120px);
+  height: fit-content;
   background-color: #E2D8D8;
   padding-left: 40px;
   padding-right: 12px;
@@ -147,7 +151,8 @@ const TabContainer = styled(Box)`
   border-bottom-width: 1px;
   border-color: #EC393E;
   width: 68%;
-  height: 600px;
+  min-height: 600px;
+  height: fit-content;
   border-radius: 25px;
   position: relative;
   margin-top: 12px;
@@ -157,6 +162,9 @@ const AntTabs = styled(Tabs)({
     '& .MuiTabs-indicator': {
         backgroundColor: '#1890ff',
     },
+    width:'fit-content',
+    marginRight: 'auto',
+    marginLeft: 'auto',
 });
 
 const AntTab = styled(Tab)({

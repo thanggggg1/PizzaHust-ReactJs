@@ -20,7 +20,11 @@ export const ComboItem = memo(function ComboItem(props) {
     const valid = Date.now() / 1000 >= combo.start && Date.now() / 1000 <= combo.end
     return (
         <ContainerCombo>
-            <ImageItemCombo src={combo.banner}/>
+            <div style={{background : `url("${combo.banner}") no-repeat center`,
+          borderTopRightRadius: '12px',
+          borderTopLeftRadius: '12px',
+          width: '100%',
+          height: '187.5px'}}></div>
             <div style={{padding: 8, display: "flex", flexDirection: "column", backgroundColor: '#FFF9F9'}}>
                 <TextBoldCombo>{combo.title}</TextBoldCombo>
                 <TextNormalCombo>{combo.description}</TextNormalCombo>
@@ -51,10 +55,11 @@ const ContainerCombo = styled(Box)`
   box-shadow: 2px 2px 4px 0px #00000040;
   height: 320px;
 `
-const ImageItemCombo = styled('img')`
+const ImageItemCombo = styled('div')`
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
   width: 100%;
+  height: 187.5px,
 `
 const TextBoldCombo = styled('span')`
   font-size: 20px;

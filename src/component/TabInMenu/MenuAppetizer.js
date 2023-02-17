@@ -34,7 +34,7 @@ export const MenuAppetizer = memo(function MenuAppetizer(props){
     const fetchingStatus = categories[category].selector.fetchingStatus
     const products = categories[category].selector.entities
     // const ids = categories[category].selector.ids
-    const max = 3;
+    const max = 8;
     //const [page, setPage] = useState(1);
     const totalPage = Math.ceil(ids.length / max);
     const pageList = [];
@@ -52,6 +52,9 @@ export const MenuAppetizer = memo(function MenuAppetizer(props){
                                 <Grow in={page===p} mountOnEnter unmountOnExit timeout={page===p ? 1000: 0}>
                                     <Box
                                         sx={{
+                                            maxWidth: '1000px',
+                                            marginLeft: 'auto',
+                                            marginRight: 'auto',
                                             display: 'flex',
                                             flexWrap: 'wrap',
                                             justifyContent:'center'
@@ -63,7 +66,10 @@ export const MenuAppetizer = memo(function MenuAppetizer(props){
                                             )
                                                 .map((id, index) =>{
                                                     return (index >= (page - 1)*max && index < page * max) &&
-                                                        <Box sx={{marginRight:4}}>
+                                                        <Box sx={{
+                                                            marginRight:4,
+                                                            marginBottom:4,
+                                                            }}>
                                                             <ExtraItemInMenu image={products[id].image_url} name={products[id].title}
                                                                              rate={products[id].rating} price={products[id].price}
                                                                              id = {id} link = {categories[category].singlePath + id}
